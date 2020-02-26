@@ -19,15 +19,7 @@ public class BattleSystem : MonoBehaviour
 
     private void SetupBattle()
     {
-        if(player.GetComponent<CharacterStats>().dex >= enemy.GetComponent<CharacterStats>().dex)
-        {
-            state = BattleState.PLAYERTURN;
-
-        }
-        else
-        {
-            state = BattleState.ENEMYTURN;
-        }
+     
     }
     
     private void PlayerTurn()

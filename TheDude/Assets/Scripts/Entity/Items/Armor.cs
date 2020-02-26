@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Armor : MonoBehaviour
+public class Armor : AbilityController
 {
     public void Equip(){
         //example: set armor value on 5
         //show in inventory
-        stats.Armor.AddModifire(5);
+        stats.armor.AddModifire(5);
     }     
 
     public virtual void Use(){
@@ -16,6 +16,6 @@ public class Armor : MonoBehaviour
     public virtual void Remove(){
          //example: set armor value on 5
         //remove from inventory
-        stats.Armor.RemoveModifire(5);
+        stats.armor.RemoveModifire(5);
     }
 }
