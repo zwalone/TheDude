@@ -1,0 +1,19 @@
+1. Effect Controller 
+Character impose effects (fire, freze ...) to enemy 
+And use skills to remove all effects and deal bonuss dmg
+for each effe.
+
+2. Kamikadze 
+When character deal dmg to enemy he hurt himself
+Character should have bonus from potions or 
+skills set to heal.
+
+3. Grave Robber
+This character should have more Sp and his skills 
+deal low dmg, skills should can be reaperted
+New effects wound(2x dmg to enemy with this eff)
+
+4. Thief
+This character steal/remove Sp from enemy 
+We can add also steal gold or items 
+

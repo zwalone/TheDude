@@ -7,7 +7,7 @@ public class Armor : AbilityController
     public void Equip(){
         //example: set armor value on 5
         //show in inventory
-        stats.armor.AddModifire(5);
+        //stats.armor.AddModifire(5);
     }     
 
     public virtual void Use(){
@@ -16,6 +16,6 @@ public class Armor : AbilityController
     public virtual void Remove(){
          //example: set armor value on 5
         //remove from inventory
-        stats.armor.RemoveModifire(5);
+        //stats.armor.RemoveModifire(5);
     }
 }

@@ -13,7 +13,11 @@ public class Ability : ScriptableObject
 
     public float dmgscale;
 
-    //public float heal;
+    public float heal;
+
+    public int costSp;
+
+    public List<Effects> efects;
 
     public Sprite icon;
 

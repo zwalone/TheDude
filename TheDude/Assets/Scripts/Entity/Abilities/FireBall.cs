@@ -8,7 +8,7 @@ public class FireBall : AbilityController
     private float cooldown;
     public void Equip(){
         //example: give 5 additional damge when gain this skill
-        stats.damage.AddModifire(5);
+        //stats.damage.AddModifire(5);
     }    
 
     public void Use(){
@@ -18,7 +18,7 @@ public class FireBall : AbilityController
        
     }     
     public void Remove(){
-         stats.damage.RemoveModifire(5);
+         //stats.damage.RemoveModifire(5);
     }
 
     private void Update() {

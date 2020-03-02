@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    public Stat damage;
-    public Stat armor;
-    public Stat dex;
+    public Stat hp;
+    public Stat atk;
+    //Number of action in turn
+    public Stat sp;
+    public Stat def;
+    //Power of effects 
+    public Stat Atr;
+
 
     //we will set later what stats exactly we need
    public void TakeDamage(int dmg){
