@@ -6,19 +6,22 @@ public class FireBall : AbilityController
 {
     private Ability ability;
     private float cooldown;
-    public void Equip(){
+    public override void Equip(){
+        base.Equip();
         //example: give 5 additional damge when gain this skill
         //stats.damage.AddModifire(5);
     }    
 
-    public void Use(){
+    public override void Use(){
+        base.Use();
         //play animation
         stats.TakeDamage(20);
         cooldown = 20;
        
     }     
-    public void Remove(){
+    public override void Remove(){
          //stats.damage.RemoveModifire(5);
+         base.Remove();
     }
 
     private void Update() {
