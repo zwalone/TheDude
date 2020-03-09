@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stat : MonoBehaviour
+[System.Serializable]
+public class Stat
 {
     private List<int> modifires;
     [SerializeField]

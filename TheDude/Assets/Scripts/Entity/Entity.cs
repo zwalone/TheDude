@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    protected CharacterStats stats;
+    public CharacterStats stats;
 
     [SerializeField]
-    protected List<AbilityController> ability;
+    public List<AbilityController> ability;
 
     public void AddAbility(AbilityController ab)
     {

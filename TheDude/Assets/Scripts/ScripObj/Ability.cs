@@ -15,7 +15,7 @@ public class Ability : ScriptableObject
 
     public float heal;
 
-    public int costSp;
+    public float costSp;
 
     public List<Effects> efects;
 

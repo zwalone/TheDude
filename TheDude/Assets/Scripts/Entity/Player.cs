@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-class Player : Entity
+public class Player : Entity
 {
-    
+
 }
