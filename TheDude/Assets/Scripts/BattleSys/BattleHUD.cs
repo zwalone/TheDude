@@ -1,21 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattleHUD : MonoBehaviour
 {
-    /*public Text name;
-    public slider hpSlider;
+    public Text plName;
+    public Text enName;
+    public Slider plHp;
+    public Slider enHp;
+    CharacterStats plStats;
+    CharacterStats enStats;
 
-    public void SetHUD(CharacterStats stats)
+    public void SetHUD()
     {
-        name.Text = stats.name.Text;
-        hpSlider.maxValue = stats.hp.maxValue;
-        hpSlider.value = stats.hp.value;
+        plStats = BattleSystem.Instance.player.stats;
+        enStats = BattleSystem.Instance.enemy.stats;
+
+        plName.text= plStats.charName;
+        enName.text = enStats.charName;
+
+        plHp.maxValue = plStats.hp.maxValue;
+        enHp.maxValue = enStats.hp.maxValue;
+
+        UpdateHUD();
     }
 
-    public void SetHP(int hp)
+    public void UpdateHUD()
     {
-       hpSlider.value = hp; 
-    }*/
+        plHp.value = plStats.hp.value;
+        enHp.value = enStats.hp.value;
+    }
 }

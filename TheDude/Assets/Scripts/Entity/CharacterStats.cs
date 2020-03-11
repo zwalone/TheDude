@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    //public Text name;
+    public string charName;
     public Stat hp;
     public Stat atk;
     //Number of action in turn

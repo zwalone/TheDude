@@ -26,25 +26,19 @@ public class BattleSystem : MonoBehaviour
     public Player player;
     public Enemy enemy;
     public GameObject enemyGO;
-    //public BattleHUD pHUD;
-    //public BattleHUD eHUD;
+    public BattleHUD HUD;
+    public delegate void AfterEffects();
+    public AfterEffects afterEffects;
 
-    private void Start()
-    {
-        
-        //pHUD.SetHUD(player.stats);
-        //eHUD.SetHUD(enemy.stats);
-        
-        
-    }
+
 
     public IEnumerator SetupBattle(GameObject en)
     {
         state = BattleState.START;
-        enemyGO = Instantiate(en, enBatStation);
-        enemy = en.GetComponent<Enemy>();
-        enemy.GetComponent<CharacterStats>();
-        enemy.stats.hp.value = 70;
+        enemyGO = (GameObject)Instantiate(en);
+        enemy = enemyGO.GetComponent<Enemy>();
+
+        HUD.SetHUD();
 
         Debug.Log("Bitwa sie Zaczela");
         yield return new WaitForSeconds(2f);
@@ -58,6 +52,7 @@ public class BattleSystem : MonoBehaviour
         player.ability[act].Use();
         yield return new WaitForSeconds(2f);
 
+        HUD.UpdateHUD();
         if(enemy.stats.hp.value >0) isDead = false;
         else  isDead = true;
         
@@ -75,13 +70,15 @@ public class BattleSystem : MonoBehaviour
     
     private void PlayerTurn()
     {
-		//dialogueText.text = "Choose an action:";
+        if(afterEffects != null)
+		    afterEffects();
     }
 
     IEnumerator EnemyTurn()
     {
         bool isDead = player.stats.TakeDamage(-10);
         Debug.Log("Enemy Atakuje 10");
+        HUD.UpdateHUD();
         yield return new WaitForSeconds(1f);
 
 		if(isDead)

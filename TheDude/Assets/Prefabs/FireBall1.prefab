@@ -43,4 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc715384e232dbbf8ad27ed7880ac391, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lvl: {fileID: 11400000, guid: 9c191319da4bfe009b86a8e63c97e571, type: 2}
+  dmgscale: 0.5
