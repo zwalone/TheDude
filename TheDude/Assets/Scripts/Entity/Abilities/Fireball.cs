@@ -13,7 +13,7 @@ public class Fireball : AbilityController
         base.Use();
         bs=BattleSystem.Instance;
 
-        int dmg = (int)(bs.player.stats.atk.value * dmgscale); 
+        int dmg = (int)(bs.player.stats.Atk.Val * dmgscale); 
         Debug.Log("Atakuje " + dmg);
         bs.enemy.stats.TakeDamage(-dmg);
         bs.afterEffects += Ignite;
@@ -24,8 +24,9 @@ public class Fireball : AbilityController
 
     void Ignite()
     {
-        int dmg = (int)(bs.player.stats.atk.value * dmgscale*0.5);
-        Debug.Log("Podpalam " + dmg);
+        int dmg = (int)(bs.player.stats.Atk.Val * dmgscale*0.5);
+        bs.GUI.SetInfo("Burn!");
+        bs.enemy.stats.TakeDamage(-dmg);
         bs.afterEffects -= Ignite;
     }
 

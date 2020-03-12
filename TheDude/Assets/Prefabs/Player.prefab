@@ -46,21 +46,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charName: The Dude
-  hp:
-    _maxValue: 50
-    _value: 50
-  atk:
-    _maxValue: 0
-    _value: 0
-  sp:
-    _maxValue: 0
-    _value: 0
-  def:
-    _maxValue: 0
-    _value: 0
-  Atr:
-    _maxValue: 0
-    _value: 0
+  maxHP: 50
+  actionPoints: 0
+  hp: 0
+  Atk:
+    val: 50
+  Def:
+    val: 0
+  Dex:
+    val: 30
 --- !u!114 &6000751049028971317
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +71,7 @@ MonoBehaviour:
   ability:
   - {fileID: 5202103892878753725, guid: 488e02b0bca06009ca5c497d6f9288a6, type: 3}
   - {fileID: 6971317542144564286, guid: 64811fc8cd47e147fa3bbef4e64abc19, type: 3}
+  - {fileID: 8174370693734407819, guid: 62705ea7028f0d3d3bce3c7affef6101, type: 3}
 --- !u!1 &7893847196238802394
 GameObject:
   m_ObjectHideFlags: 0

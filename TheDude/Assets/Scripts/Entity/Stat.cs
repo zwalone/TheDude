@@ -6,44 +6,39 @@ using UnityEngine;
 public class Stat
 {
     private List<int> modifires;
+
     [SerializeField]
-    private int _maxValue;
-    public int maxValue
+    private int val;
+    public int Val
     {
-        get
-        {
-            return _maxValue;
-        }
+        get {return val;}
         set
         {
-            _maxValue += maxValue;
-        }
-    }
-    [SerializeField]
-    private int _value;
-    public int value
-    {
-        get
-        {
-            // add all modifires and return 
-            return _value;
-        }
-        set
-        {
-            //check max value and floor the result
-            _value += value;
+            if(val + value <0) val = 0;
+            else val += value;
         }
     }
 
-
+    public int GetModifires()
+    {
+        int tmp = val;
+        if(modifires != null)
+        {
+            foreach (int item in modifires)
+                tmp += item;
+        }
+        return tmp;
+    }
     public void AddModifire(int mod)
     {
-        // list add modifires and count other parameters like maximum value, multiplication and so on 
+        if(modifires == null)
+            modifires = new List<int>();
+        modifires.Add(mod);
     }
 
      public void RemoveModifire(int mod)
     {
-        // list remove modifires and count other parameters
+        modifires.Remove(mod);
     }
 
 }

@@ -35,10 +35,10 @@ RectTransform:
   m_Father: {fileID: 7429014544198284204}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 80}
-  m_SizeDelta: {x: 250, y: 50}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 65.4, y: -26}
+  m_SizeDelta: {x: 130.8, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6981346768860945566
 CanvasRenderer:
@@ -149,6 +149,7 @@ MonoBehaviour:
     - Napewno to przewiniesz hehe
     - "Co robisz \n> Atakuje\n>Uciekam\n>Pytam si\u0119 czy nie ma lisich futer na
       spr\x13zedarz"
+  enemyGO: {fileID: 5265981494800524961, guid: 758e6e4792fd7243d927def024905bae, type: 3}
 --- !u!1 &6981346769670275721
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +228,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Enter The Battle #01'
+  m_Text: 'Battle #01'
 --- !u!1 &8021604717519578798
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,8 +260,8 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 263}
+  m_SizeDelta: {x: 0, y: 52}
   m_Pivot: {x: 0.5, y: 0.5}

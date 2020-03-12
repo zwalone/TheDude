@@ -19,18 +19,15 @@ public class BattleSystem : MonoBehaviour
             return _instance;
         }
     }
+    public delegate void AfterEffects();
+    public AfterEffects afterEffects;
     public BattleState state;
-    public Transform plBatStation;
-    public Transform enBatStation;
-
     public Player player;
     public Enemy enemy;
     public GameObject enemyGO;
     public BattleHUD HUD;
-    public delegate void AfterEffects();
-    public AfterEffects afterEffects;
-
-
+    public BattleGUI GUI;
+    public int turn;
 
     public IEnumerator SetupBattle(GameObject en)
     {
@@ -38,88 +35,94 @@ public class BattleSystem : MonoBehaviour
         enemyGO = (GameObject)Instantiate(en);
         enemy = enemyGO.GetComponent<Enemy>();
 
+        turn = 0;
         HUD.SetHUD();
-
-        Debug.Log("Bitwa sie Zaczela");
+        GUI.SetInfo("The Battle Has Begun");
+        GUI.SetInfo("Jazda");
         yield return new WaitForSeconds(2f);
-        state = BattleState.PLAYERTURN;
-        PlayerTurn();
+        NextTurn();
     }
 
-     IEnumerator PlayerAction(int act)
+    void NextTurn()
     {
-        bool isDead;
-        player.ability[act].Use();
-        yield return new WaitForSeconds(2f);
-
-        HUD.UpdateHUD();
-        if(enemy.stats.hp.value >0) isDead = false;
-        else  isDead = true;
-        
-
-        if(isDead)
-		{
-			state = BattleState.WON;
-			EndBattle();
-		} else
-		{
-			state = BattleState.ENEMYTURN;
-			StartCoroutine(EnemyTurn());
-		}
-    }
-    
-    private void PlayerTurn()
-    {
+        turn++;
+        GUI.SetInfo("Turn #" + turn);
         if(afterEffects != null)
 		    afterEffects();
+        player.stats.ResetAC();
+        HUD.UpdateHUD();
+        IsDead();
+        state = BattleState.PLAYERTURN;
+    }
+    public void NextStage()
+    {
+        if(!IsDead())
+        {
+            if(state == BattleState.PLAYERTURN)
+            {
+                state = BattleState.ENEMYTURN;
+                StartCoroutine(EnemyTurn());
+            }
+            else NextTurn();
+        }
+    }
+
+     public IEnumerator PlayerAction(int act)
+    {
+        Debug.Log(player.ability[act].cost);
+       if(player.stats.CastSkill(player.ability[act].cost))
+        {
+            player.ability[act].Use();
+            HUD.UpdateHUD();
+            yield return new WaitForSeconds(2f);
+        }
     }
 
     IEnumerator EnemyTurn()
     {
-        bool isDead = player.stats.TakeDamage(-10);
-        Debug.Log("Enemy Atakuje 10");
+        yield return new WaitForSeconds(1f);
+        GUI.SetInfo("Enemy Attack !");
+        player.stats.TakeDamage(-10);
         HUD.UpdateHUD();
         yield return new WaitForSeconds(1f);
-
-		if(isDead)
-		{
-			state = BattleState.LOST;
-			EndBattle();
-		} else
-		{
-			state = BattleState.PLAYERTURN;
-			PlayerTurn();
-		}
-
+        NextTurn();
     }
 
-    public void OnR1Buttom()
-    {
-        if(state != BattleState.PLAYERTURN)
-           return;
-
-        StartCoroutine(PlayerAction(0));
-    }
-    public void OnR2Buttom()
-    {
-        if(state != BattleState.PLAYERTURN)
-           return;
-
-        StartCoroutine(PlayerAction(1));
-        
-    }
-
-    void EndBattle()
+   void EndBattle()
 	{
 		if(state == BattleState.WON)
 		{
-            Debug.Log("You won the battle!");
+            GUI.SetInfo("You won the battle!");
 		} 
         else if (state == BattleState.LOST)
 		{
-			Debug.Log("You were defeated.");
+            GUI.SetInfo("You were defeated.");
 		}
         Destroy(enemyGO);
 	}
 
+    public void MakeChoice(int num)
+    {
+        if(state != BattleState.PLAYERTURN)
+            return;
+        StartCoroutine(PlayerAction(num));
+    }
+
+    bool IsDead()
+    {
+        if(!enemy.stats.IsAlive())
+		{
+            state = BattleState.WON;
+			EndBattle();
+            return true;
+		}
+        else if(!player.stats.IsAlive())
+		{
+            state = BattleState.LOST;
+			EndBattle();	
+            return true;
+		}
+        else return false;
+
+    }
 }

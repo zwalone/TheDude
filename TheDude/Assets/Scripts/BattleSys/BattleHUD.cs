@@ -20,15 +20,17 @@ public class BattleHUD : MonoBehaviour
         plName.text= plStats.charName;
         enName.text = enStats.charName;
 
-        plHp.maxValue = plStats.hp.maxValue;
-        enHp.maxValue = enStats.hp.maxValue;
+        plHp.maxValue = plStats.MaxHP;
+        enHp.maxValue = enStats.MaxHP;
 
+        plStats.ResetHP();
+        enStats.ResetHP();
         UpdateHUD();
     }
 
     public void UpdateHUD()
     {
-        plHp.value = plStats.hp.value;
-        enHp.value = enStats.hp.value;
+        plHp.value = plStats.Hp;
+        enHp.value = enStats.Hp;
     }
 }

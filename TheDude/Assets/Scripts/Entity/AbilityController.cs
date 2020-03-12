@@ -7,6 +7,7 @@ public class AbilityController : MonoBehaviour
     //inheritance items object after this class
     // have change name of its class
     protected CharacterStats stats;
+    public int cost;
     // Start is called before the first frame update
 
     public virtual void Equip(){

@@ -5,20 +5,71 @@ using UnityEngine;
 public class CharacterStats : MonoBehaviour
 {
     public string charName;
-    public Stat hp;
-    public Stat atk;
+    [SerializeField]
+    private int maxHP;
+    public int MaxHP 
+    { 
+        get{return maxHP;}
+        set{maxHP = value;}
+    }
+    [SerializeField]
+    private int actionPoints;
+    public int ActionPoints 
+    { 
+        get{return actionPoints;}
+        set{actionPoints += value;}
+    }
+    [SerializeField]
+    private int hp;
+    public int Hp 
+    { 
+        get{return hp;}
+        set
+        {
+            if(hp+value<0) hp = 0;
+            else if(hp+value > MaxHP) hp = MaxHP;
+            else hp += value;
+        }
+    }
+    public Stat Atk;
+    public Stat Def;
     //Number of action in turn
-    public Stat sp;
-    public Stat def;
-    //Power of effects 
-    public Stat Atr;
+    public Stat Dex;
 
-    //we will set later what stats exactly we need
-   public bool TakeDamage(int dmg)
+   public void TakeDamage(int dmg)
     {
-        hp.value = dmg;
-        if(hp.value <= 0) return true;
+        int tmp = Def.GetModifires();
+        tmp += dmg;
+        if(tmp < 0)
+        {
+             Hp = tmp;
+             BattleSystem.Instance.GUI.SetInfo(tmp + "HP");
+
+        }   
+    }
+
+    public bool CastSkill(int cost)
+    {
+        if(cost <= ActionPoints)
+        {
+            ActionPoints = -cost;
+            return true;
+        }
         else return false;
     }
 
+    public bool IsAlive()
+    {
+        if(Hp <=0) return false;
+        else return true;
+    }
+
+    public void ResetHP()
+    {
+        Hp = MaxHP;
+    }
+    public void ResetAC()
+    {
+        ActionPoints = Dex.Val;
+    }
 }
