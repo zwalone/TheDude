@@ -5,6 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="New Item", menuName ="Item")]
 public class Item : ScriptableObject
 {
+    public Type type;
+
     public new string name;
 
     public string Description;
@@ -19,5 +21,12 @@ public class Item : ScriptableObject
 
     public int dmg;
 
+    public enum Type
+    {
+        Weapon,
+        Helm,
+        Breastplate,
+        Boots,
+    };
     //many others right ? 
 }
