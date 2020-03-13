@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class Armor : AbilityController
 {
+    [SerializeField]
+    private Item item;
     public void Equip(){
+        
+        //Tutaj Inventory Dodaj Iteam;
+
+
         //example: set armor value on 5
         //show in inventory
         //stats.armor.AddModifire(5);
+
     }     
 
     public virtual void Use(){

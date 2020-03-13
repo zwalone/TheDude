@@ -4,12 +4,29 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    #region Singleton
+    public static Inventory instace;
 
-    protected List<AbilityController> items;
+    private void Awake()
+    {
+        if(instace == null)
+        {
+            instace = this;
+        }
+    }
+    #endregion
+
+    [SerializeField]
+    protected List<AbilityController> eqSlots;
+
+    //Dadaj do listy głownej
+    //jak jest w liscie głownej to dodaj do do listy założonej
+
 
     public void AddItem(Item it)
     {
         // check condition and add create ability controller
+
     }
 
      public void RemoveItem(Item it)

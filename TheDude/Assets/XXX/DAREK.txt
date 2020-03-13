@@ -1,0 +1,19 @@
+GO Item:
+	Armor, 	
+			SO
+			
+	Equip() 
+	Inventory.Equip()
+	
+	Remove() "usuń obiekt"
+	
+	
+Inventory 3x Lista 
+2x eq raz do main listy
+	raz do poszczegóolnej zalozonej listy
+	
+2x remove raz do main listy
+	raz wurzycic
+	
+2x zamien z w listach 
+
