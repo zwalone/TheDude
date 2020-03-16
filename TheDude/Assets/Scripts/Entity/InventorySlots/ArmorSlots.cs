@@ -18,14 +18,18 @@ public class ArmorSlots : AbilityController
 
     public void AddItem(AbilityController item)
     {
+
         //TODO Check Type of item
-        Armor = item;
+        if (item.GetComponent<Armor>().Typee.ToString() == type.ToString())
+        {
+            Armor = item;
 
-        Icon.sprite = item.GetComponent<Armor>().Icon;
-        Icon.enabled = true;
+            Icon.sprite = item.GetComponent<Armor>().Icon;
+            Icon.enabled = true;
 
+        }
         //ADD Modyfire
-        
+
     }
 
     public void Remove()
@@ -36,6 +40,16 @@ public class ArmorSlots : AbilityController
     public void UnEqiup()
     {
         //Go back to Main inventory
+        if (Armor != null)
+        {
+            if (Inventory.instace.UnEquip(Armor))
+            {
+                Armor = null;
+                Icon.sprite = null;
+                Icon.enabled = false;
+            }
+        }
+        
         //Remove Modyfire
     }
 

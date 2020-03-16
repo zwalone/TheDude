@@ -18,19 +18,15 @@ public class InventoryUI : MonoBehaviour
         Inventory.instace.eqMainChange += MainSlotsUpdateUi;
         slotsMain = MainSlots.GetComponentsInChildren<InventorySlots>();
 
-        //Armor
+        //Armor & Subscribe Main eq Ui Change
+        
         Inventory.instace.eqArmorsChange += ArmorSlotsUpdateUi;
-        //slotsArmor = 
+        Inventory.instace.eqArmorsChange += MainSlotsUpdateUi;
+        slotsArmor = ArmorSlots.GetComponentsInChildren<ArmorSlots>();
 
         //Skills
         //Inventory.instace.eqSkillsChange += SkillsSlotsUpdateUi;
     }   
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     void MainSlotsUpdateUi()
     {
@@ -49,7 +45,15 @@ public class InventoryUI : MonoBehaviour
 
     void ArmorSlotsUpdateUi()
     {
+        //Change Ui to Armors
         //Update Armor Slots
+        for (int i = 0; i < slotsArmor.Length; i++)
+        {
+            foreach (var item in Inventory.instace.eqArmors)
+            {
+                slotsArmor[i].AddItem(item);
+            }
+        }
     }
 
     void SkillsSlotsUpdateUi()

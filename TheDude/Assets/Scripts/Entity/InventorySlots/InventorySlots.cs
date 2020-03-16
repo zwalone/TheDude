@@ -29,6 +29,17 @@ public class InventorySlots : AbilityController
     public void Equip()
     {
         //efect happend after equip ability like flat modifires or passive skills
+        if (item != null)
+        {
+            if (Inventory.instace.Equip(item))
+            {
+                //Destroy Item
+                //Destroy(item);
+                //item = null;
+                //icon.sprite = null;
+                //icon.enabled = false;
+            }
+        }
     }
     public void Use()
     {

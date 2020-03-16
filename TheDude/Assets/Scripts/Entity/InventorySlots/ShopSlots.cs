@@ -21,7 +21,8 @@ public class ShopSlots : AbilityController
             if (Inventory.instace.AddItem(item))
             {
                 //Destroy Item
-                Destroy(item);
+                //Destroy(item);
+                item = null;
                 icon.GetComponent<Image>().sprite = null;
             }
         }

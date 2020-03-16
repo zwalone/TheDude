@@ -14,8 +14,16 @@ public class Armor : AbilityController
     private Sprite _icon;
     private int _armor;
     private int _dmg;
+    private Type _type;
+    public enum Type
+    {
+        Weapon,
+        Helm,
+        Breastplate,
+        Boots,
+    }
 
-
+    //Probles with type 
     public void Start()
     {
         _name = item.name;
@@ -24,6 +32,7 @@ public class Armor : AbilityController
         _icon = item.icon;
         _armor = item.armor;
         _dmg = item.dmg;
+        _type = (Type)item.type;
 
     }
 
@@ -51,5 +60,5 @@ public class Armor : AbilityController
     public Sprite Icon { get { return _icon; } }
     public int Armorr { get { return _armor; } }
     public int Dmg { get { return _dmg; } }
-
+    public Type Typee { get { return _type; } }
 }
