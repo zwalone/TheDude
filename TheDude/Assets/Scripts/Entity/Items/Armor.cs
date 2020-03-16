@@ -5,10 +5,7 @@ using UnityEngine.UI;
 
 public class Armor : AbilityController
 {
-<<<<<<< HEAD
-    public override void Equip(){
-        base.Equip();
-=======
+
     [SerializeField]
     private Item item;
 
@@ -44,18 +41,12 @@ public class Armor : AbilityController
 
         //Tutaj Inventory Dodaj Iteam;
         
->>>>>>> 3bfe18e1dfcc66b5fd0599b747d849e076dc4214
         //example: set armor value on 5
         //show in inventory
         //stats.armor.AddModifire(5);
+    }
 
-<<<<<<< HEAD
-    public override void Use(){
-        base.Use();
-=======
-    }     
     public virtual void Use(){
->>>>>>> 3bfe18e1dfcc66b5fd0599b747d849e076dc4214
         //sell item or active its ability
     }     
     public override void Remove(){
