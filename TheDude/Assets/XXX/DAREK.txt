@@ -1,0 +1,15 @@
+
+
+
+Create Armor Slots and Add Func 
+	-Add/Remove modyfire
+	-Unequip remove to Main eq
+	-Check Type of Armor
+
+Create delegate
+	-Arrmor 
+	-Skills
+
+UI 
+	-Create Change button Ui From Arrmor to skills 
+	-W8 for full concept of Ability
