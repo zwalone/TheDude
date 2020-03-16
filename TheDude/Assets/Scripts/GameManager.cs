@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject nextEnemy;
     //Level on map
     private int _level;
     public int level

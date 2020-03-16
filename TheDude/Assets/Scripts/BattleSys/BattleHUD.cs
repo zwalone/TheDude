@@ -11,6 +11,9 @@ public class BattleHUD : MonoBehaviour
     public Slider enHp;
     CharacterStats plStats;
     CharacterStats enStats;
+    public Text pAC;
+    public Text eAC;
+
 
     public void SetHUD()
     {
@@ -32,5 +35,6 @@ public class BattleHUD : MonoBehaviour
     {
         plHp.value = plStats.Hp;
         enHp.value = enStats.Hp;
+        pAC.text = string.Format("AC: {0}/{1}",plStats.ActionPoints,plStats.Dex.Val);
     }
 }

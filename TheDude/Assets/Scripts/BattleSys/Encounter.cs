@@ -16,7 +16,9 @@ public class Encounter : MonoBehaviour
     public void TriggerEncounter()
     {
         //manager.StartDialogue(dialogue);
-        StartCoroutine(BattleSystem.Instance.SetupBattle(enemyGO));
+        Debug.Log("Loading...");
+        GameManager.Instance.nextEnemy = enemyGO;
+        GameManager.Instance.ChangeScene("BattleScene");
     }
     
     public void StartBattle()

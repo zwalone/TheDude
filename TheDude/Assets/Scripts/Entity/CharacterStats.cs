@@ -17,7 +17,14 @@ public class CharacterStats : MonoBehaviour
     public int ActionPoints 
     { 
         get{return actionPoints;}
-        set{actionPoints += value;}
+        set
+        {
+            if(actionPoints + value > Dex.Val) 
+                actionPoints = Dex.Val;
+            else 
+                actionPoints += value;
+        }
+
     }
     [SerializeField]
     private int hp;

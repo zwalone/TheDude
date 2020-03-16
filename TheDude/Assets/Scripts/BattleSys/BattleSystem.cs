@@ -28,7 +28,13 @@ public class BattleSystem : MonoBehaviour
     public BattleHUD HUD;
     public BattleGUI GUI;
     public int turn;
+    private bool whoFirst;
 
+    private void Start() 
+    {
+        if(GameManager.Instance.nextEnemy != null)
+            StartCoroutine(SetupBattle(GameManager.Instance.nextEnemy));
+    }
     public IEnumerator SetupBattle(GameObject en)
     {
         state = BattleState.START;
@@ -40,6 +46,12 @@ public class BattleSystem : MonoBehaviour
         GUI.SetInfo("The Battle Has Begun");
         GUI.SetInfo("Jazda");
         yield return new WaitForSeconds(2f);
+
+        if(player.stats.Dex.Val > enemy.stats.Dex.Val)
+            whoFirst = true;
+        else 
+            whoFirst = false;
+
         NextTurn();
     }
 
@@ -52,13 +64,21 @@ public class BattleSystem : MonoBehaviour
         player.stats.ResetAC();
         HUD.UpdateHUD();
         IsDead();
-        state = BattleState.PLAYERTURN;
+
+        if(whoFirst)
+            state = BattleState.PLAYERTURN;
+        else
+        {
+            state = BattleState.ENEMYTURN;
+            StartCoroutine(EnemyTurn());
+        }
+
     }
     public void NextStage()
     {
         if(!IsDead())
         {
-            if(state == BattleState.PLAYERTURN)
+            if(state == BattleState.PLAYERTURN && whoFirst)
             {
                 state = BattleState.ENEMYTURN;
                 StartCoroutine(EnemyTurn());
@@ -69,7 +89,6 @@ public class BattleSystem : MonoBehaviour
 
      public IEnumerator PlayerAction(int act)
     {
-        Debug.Log(player.ability[act].cost);
        if(player.stats.CastSkill(player.ability[act].cost))
         {
             player.ability[act].Use();
@@ -85,7 +104,12 @@ public class BattleSystem : MonoBehaviour
         player.stats.TakeDamage(-10);
         HUD.UpdateHUD();
         yield return new WaitForSeconds(1f);
-        NextTurn();
+        
+        if(whoFirst)
+            NextTurn();
+        else
+            state = BattleState.PLAYERTURN;
+        
     }
 
    void EndBattle()

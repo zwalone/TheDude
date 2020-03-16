@@ -47,13 +47,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charName: Dziki Lis
   maxHP: 100
+  actionPoints: 0
   hp: 100
   Atk:
     val: 10
   Def:
     val: 0
   Dex:
-    val: 0
+    val: 40
 --- !u!114 &4241682593639560826
 MonoBehaviour:
   m_ObjectHideFlags: 0
