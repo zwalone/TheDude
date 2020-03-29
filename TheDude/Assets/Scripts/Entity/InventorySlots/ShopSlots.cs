@@ -10,7 +10,16 @@ public class ShopSlots : AbilityController
 
     public void Start()
     {
-        icon.GetComponent<Image>().sprite = item.GetComponent<Armor>().Icon;
+        //Add others type of ability or change ?  ?  ? 
+        if (item is Armor)
+        {
+            icon.GetComponent<Image>().sprite = item.GetComponent<Armor>().Icon;
+        }
+        else if (item is Fireball)
+        {
+            icon.GetComponent<Image>().sprite = item.GetComponent<Fireball>().Icon;
+        }
+        
     }
 
     //Add Cost
@@ -20,8 +29,6 @@ public class ShopSlots : AbilityController
         {
             if (Inventory.instace.AddItem(item))
             {
-                //Destroy Item
-                //Destroy(item);
                 item = null;
                 icon.GetComponent<Image>().sprite = null;
             }

@@ -12,9 +12,17 @@ public class InventorySlots : AbilityController
     public void AddItem(AbilityController newItem)
     {
         item = newItem;
-
-        icon.sprite = item.GetComponent<Armor>().Icon;
-        icon.enabled = true;
+        if (newItem is Armor)
+        {
+            icon.sprite = item.GetComponent<Armor>().Icon;
+            icon.enabled = true;
+        }
+        else if (newItem is Fireball)
+        {
+            icon.sprite = item.GetComponent<Fireball>().Icon;
+            icon.enabled = true;
+        }
+        
     }
 
     public void ClearSlot()

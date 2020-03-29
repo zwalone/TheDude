@@ -46,7 +46,8 @@ public class Inventory : MonoBehaviour
                 eqMainChange.Invoke();
             if (eqArmorsChange != null)
                 eqArmorsChange.Invoke();
-
+            if (eqSkillsChange != null)
+                eqSkillsChange.Invoke();
             return true;
         }
         else
@@ -88,7 +89,6 @@ public class Inventory : MonoBehaviour
                 }
             }
           
-            Debug.Log("elo");
             //if no this same type and is place equip item
             if (eqArmors.Count < 5)
             {
@@ -105,10 +105,28 @@ public class Inventory : MonoBehaviour
             
 
         }
-        else //it is skills TODO
+        //TODO !!!++++!++!+!+!++!+!+!+! ADD other type of skills
+        else if (it is Fireball)
         {
+            if (eqSkills.Count == 0)
+            {
+                eqSkills.Add(it);
+                eqSlots.Remove(it);
 
+                //UpdateUi
+                if (eqSkillsChange != null)
+                    eqSkillsChange.Invoke();
+
+                return true;
+            }
+            else
+            {
+                Debug.Log("Is 0 ");
+            }
+
+            //TODO MAX skills slots
         }
+        
         return false;
     }
 

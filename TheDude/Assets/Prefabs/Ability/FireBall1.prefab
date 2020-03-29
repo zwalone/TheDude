@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cost: 15
+  _icon: {fileID: 21300000, guid: d9bbd3ffc4b17e9d1bce751f73e79f5c, type: 3}
   dmgscale: 0.5

@@ -3,14 +3,12 @@
 public class InventoryUI : MonoBehaviour
 {
     public Transform MainSlots;
-    //public Transform SkillsSlots;
+    public Transform SkillsSlots;
     public Transform ArmorSlots;
 
     InventorySlots[] slotsMain;
     ArmorSlots[] slotsArmor;
-
-    //Change 
-    InventorySlots[] slotsSkills;
+    AbilitySlots[] slotsSkill;
 
     void Start()
     {
@@ -25,6 +23,9 @@ public class InventoryUI : MonoBehaviour
         slotsArmor = ArmorSlots.GetComponentsInChildren<ArmorSlots>();
 
         //Skills
+        Inventory.instace.eqSkillsChange += SkillsSlotsUpdateUi;
+        Inventory.instace.eqSkillsChange += MainSlotsUpdateUi;
+        slotsSkill = SkillsSlots.GetComponentsInChildren<AbilitySlots>();
         //Inventory.instace.eqSkillsChange += SkillsSlotsUpdateUi;
     }   
 
@@ -58,6 +59,12 @@ public class InventoryUI : MonoBehaviour
 
     void SkillsSlotsUpdateUi()
     {
-        //Update Skills Slots
+        for (int i = 0; i < slotsSkill.Length; i++)
+        {
+            if (i < Inventory.instace.eqSkills.Count)
+            {
+                slotsSkill[i].AddItem(Inventory.instace.eqSkills[i]);
+            }
+        }
     }
 }

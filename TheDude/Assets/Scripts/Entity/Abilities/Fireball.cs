@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Fireball : AbilityController
 {
+    [SerializeField]
+    public Sprite _icon;
     public float dmgscale;
     BattleSystem bs;
+
+
     public override void Equip(){
         base.Equip();
     }
@@ -30,4 +35,5 @@ public class Fireball : AbilityController
         bs.afterEffects -= Ignite;
     }
 
+    public Sprite Icon { get { return _icon; } }
 }
