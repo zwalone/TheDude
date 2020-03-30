@@ -13,8 +13,9 @@ public class Armor : AbilityController
     private string _description;
     private int _cost;
     private Sprite _icon;
-    private int _armor;
-    private int _dmg;
+    private int _def;
+    private int _atk;
+    private int _dex;
     private Type _type;
     public enum Type
     {
@@ -31,8 +32,9 @@ public class Armor : AbilityController
         _description = item.Description;
         _cost = item.cost;
         _icon = item.icon;
-        _armor = item.armor;
-        _dmg = item.dmg;
+        _def = item.Def;
+        _atk = item.Atk;
+        _dex = item.Dex;
         _type = (Type)item.type;
 
     }
@@ -60,7 +62,8 @@ public class Armor : AbilityController
     public string Description { get { return _description; } }
     public int Cost { get { return _cost; } }
     public Sprite Icon { get { return _icon; } }
-    public int Armorr { get { return _armor; } }
-    public int Dmg { get { return _dmg; } }
+    public int Def { get { return _def; } }
+    public int Atk { get { return _atk; } }
+    public int Dex { get { return _dex; } }
     public Type Typee { get { return _type; } }
 }

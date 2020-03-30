@@ -13,13 +13,13 @@ public class Item : ScriptableObject
 
     public int cost;
 
-    //public float heal;
-
     public Sprite icon;
 
-    public int armor;
+    public int Def;
 
-    public int dmg;
+    public int Atk;
+
+    public int Dex;
 
     public enum Type
     {

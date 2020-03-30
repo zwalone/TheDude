@@ -26,7 +26,7 @@ public class InventoryUI : MonoBehaviour
         Inventory.instace.eqSkillsChange += SkillsSlotsUpdateUi;
         Inventory.instace.eqSkillsChange += MainSlotsUpdateUi;
         slotsSkill = SkillsSlots.GetComponentsInChildren<AbilitySlots>();
-        //Inventory.instace.eqSkillsChange += SkillsSlotsUpdateUi;
+
     }   
 
     void MainSlotsUpdateUi()

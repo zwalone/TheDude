@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class Fireball : AbilityController
 {
     [SerializeField]
-    public Sprite _icon;
+    private Sprite _icon;
+    [SerializeField]
+    private int _cost;
     public float dmgscale;
     BattleSystem bs;
 
@@ -36,4 +38,5 @@ public class Fireball : AbilityController
     }
 
     public Sprite Icon { get { return _icon; } }
+    public int Cost { get { return cost; }}
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6000751049028971317}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charName: The Dude
+  money: 0
   maxHP: 50
   actionPoints: 0
   hp: 0

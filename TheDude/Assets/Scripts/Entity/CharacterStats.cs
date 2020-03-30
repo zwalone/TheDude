@@ -5,6 +5,21 @@ using UnityEngine;
 public class CharacterStats : MonoBehaviour
 {
     public string charName;
+
+    [SerializeField]
+    private int money;
+    public int Money
+    {
+        get
+        {
+            return money;
+        }
+        set
+        {
+            money += value;
+        }
+    }
+
     [SerializeField]
     private int maxHP;
     public int MaxHP 

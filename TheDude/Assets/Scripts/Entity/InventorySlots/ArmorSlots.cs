@@ -27,8 +27,12 @@ public class ArmorSlots : AbilityController
             Icon.sprite = item.GetComponent<Armor>().Icon;
             Icon.enabled = true;
 
+            CharacterStats playerStat = GetComponentInParent<CharacterStats>();
+
+
         }
         //ADD Modyfire
+        
 
     }
 
