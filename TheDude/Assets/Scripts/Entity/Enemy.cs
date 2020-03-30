@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+    public Dialogue dialogue;
 
+    public Choice choice;
 
 }

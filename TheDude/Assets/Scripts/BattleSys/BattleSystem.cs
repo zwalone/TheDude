@@ -32,15 +32,21 @@ public class BattleSystem : MonoBehaviour
 
     private void Start() 
     {
-        if(GameManager.Instance.nextEnemy != null)
-            StartCoroutine(SetupBattle(GameManager.Instance.nextEnemy));
+        //if(GameManager.Instance.nextEnemy != null)
+        // StartCoroutine(SetupBattle(GameManager.Instance.nextEnemy));
+        if (GameManager.Instance.nextEnemy != null)
+        {
+            state = BattleState.START;
+            enemyGO = (GameObject)Instantiate(GameManager.Instance.nextEnemy);
+            enemy = enemyGO.GetComponent<Enemy>();
+            DialogueManager.Instance.StartDialogue(enemy.dialogue);
+        }
+            
     }
-    public IEnumerator SetupBattle(GameObject en)
-    {
-        state = BattleState.START;
-        enemyGO = (GameObject)Instantiate(en);
-        enemy = enemyGO.GetComponent<Enemy>();
 
+    
+    public IEnumerator SetupBattle()
+    {
         turn = 0;
         HUD.SetHUD();
         GUI.SetInfo("The Battle Has Begun");
