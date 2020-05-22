@@ -290,6 +290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeab0a73e913ee43b9edeec789f577b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cost: 0
   item: {fileID: 1605030575}
   icon: {fileID: 839794289}
 --- !u!1 &434039956
@@ -442,6 +443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeab0a73e913ee43b9edeec789f577b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cost: 0
   item: {fileID: 1779560955}
   icon: {fileID: 1834042745}
 --- !u!1 &519420028
@@ -1895,6 +1897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfeab0a73e913ee43b9edeec789f577b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cost: 0
   item: {fileID: 2052087316}
   icon: {fileID: 629022437}
 --- !u!114 &1605030575 stripped
