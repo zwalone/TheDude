@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
     {
         get
         {
-            if (_instance == null)
+            if(_instance == null)
             {
                 _instance = GameObject.FindObjectOfType<DialogueManager>();
             }
@@ -22,11 +22,6 @@ public class DialogueManager : MonoBehaviour
     public Text nameText;
     public Text dialogueText;
 
-    public List<GameObject> ElementsOfUI;
-
-    public GameObject nextButtom;
-    public GameObject choices;
-
     public Animator animator;
     private Queue<string> sentences;
     void Start()
@@ -37,13 +32,11 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        foreach (GameObject obj in ElementsOfUI) obj.SetActive(false);
-
-        animator.SetBool("isOpen", true);
+        animator.SetBool("isOpen",true);
         nameText.text = dialogue.name;
         sentences.Clear();
 
-        foreach (string sentence in dialogue.sentences)
+        foreach(string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
         }
@@ -53,10 +46,9 @@ public class DialogueManager : MonoBehaviour
 
     public void DislayNextSentence()
     {
-        if (sentences.Count == 0)
+        if(sentences.Count == 0)
         {
-            nextButtom.SetActive(false);
-            choices.SetActive(true);
+            EndDialogue();
             return;
         }
 
@@ -66,8 +58,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        animator.SetBool("isOpen", false);
-        foreach (GameObject obj in ElementsOfUI) obj.SetActive(true);
-    } 
+        animator.SetBool("isOpen",false);
 
+    }
 }

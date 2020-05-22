@@ -69,12 +69,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 216134133995080329}
   ability: []
-  dialogue:
-    name: Dziki Lis
-    sentences:
-    - To ja Dziki Lis
-    - "Jestem Z\u0142y "
-    - "W\u0142a\u015Bnie tak b\xF3j si\u0119 cz\u0142eku"
 --- !u!1 &8819876588778987363
 GameObject:
   m_ObjectHideFlags: 0

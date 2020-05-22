@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ArmorSlots //: AbilityController
+public class ArmorSlots : AbilityController
 {
     public Type type;
     public Image Icon;

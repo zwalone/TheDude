@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Armor //: AbilityController
+public class Armor : AbilityController
 {
 
     [SerializeField]
-    public Item item;
+    private Item item;
 
     private string _name;
     private string _description;
@@ -49,12 +49,12 @@ public class Armor //: AbilityController
     public virtual void Use(){
         //sell item or active its ability
     }     
-    //public override void Remove(){
-    //    base.Remove();
-    //     //example: set armor value on 5
-    //    //remove from inventory
-    //    //stats.armor.RemoveModifire(5);
-    //}
+    public override void Remove(){
+        base.Remove();
+         //example: set armor value on 5
+        //remove from inventory
+        //stats.armor.RemoveModifire(5);
+    }
 
     public string Name { get {return _name; }}
     public string Description { get { return _description; } }

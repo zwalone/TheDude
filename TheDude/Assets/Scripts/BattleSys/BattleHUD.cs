@@ -17,11 +17,11 @@ public class BattleHUD : MonoBehaviour
 
     public void SetHUD()
     {
-        plStats = BattleSystem.Instance.player.Stats;
-        enStats = BattleSystem.Instance.enemy.Stats;
+        plStats = BattleSystem.Instance.player.stats;
+        enStats = BattleSystem.Instance.enemy.stats;
 
-        plName.text= plStats.CharName;
-        enName.text = enStats.CharName;
+        plName.text= plStats.charName;
+        enName.text = enStats.charName;
 
         plHp.maxValue = plStats.MaxHP;
         enHp.maxValue = enStats.MaxHP;
@@ -35,6 +35,6 @@ public class BattleHUD : MonoBehaviour
     {
         plHp.value = plStats.Hp;
         enHp.value = enStats.Hp;
-        //pAC.text = string.Format("AC: {0}/{1}",plStats.ActionPoints,plStats.Dex.Val);
+        pAC.text = string.Format("AC: {0}/{1}",plStats.ActionPoints,plStats.Dex.Val);
     }
 }

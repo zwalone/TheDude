@@ -60,83 +60,81 @@ public class Inventory : MonoBehaviour
 
     public bool Equip(AbilityController it)
     {
-        return true;
-        //if (it is Armor)
-        //{
-        //    //Add to Arrmor Eq
-        //    //if exist others iteams type like new item
+        if (it is Armor)
+        {
+            //Add to Arrmor Eq
+            //if exist others iteams type like new item
           
 
-        //    if (eqArmors.Count != 0)
-        //    {
-        //        foreach (Armor item in eqArmors)
-        //        {
-        //            //Replece Iteam
-        //            if (it.GetComponent<Armor>().Typee == item.Typee)
-        //            {
-        //                eqSlots.Add(item);
-        //                eqArmors.Add(it);
-        //                eqArmors.Remove(item);
-        //                eqSlots.Remove(it);
+            if (eqArmors.Count != 0)
+            {
+                foreach (Armor item in eqArmors)
+                {
+                    //Replece Iteam
+                    if (it.GetComponent<Armor>().Typee == item.Typee)
+                    {
+                        eqSlots.Add(item);
+                        eqArmors.Add(it);
+                        eqArmors.Remove(item);
+                        eqSlots.Remove(it);
 
-        //                //Update Ui
-        //                if (eqArmorsChange != null)
-        //                    eqArmorsChange.Invoke();
+                        //Update Ui
+                        if (eqArmorsChange != null)
+                            eqArmorsChange.Invoke();
                         
 
-        //                return true;
-        //            }
-        //        }
-        //    }
+                        return true;
+                    }
+                }
+            }
           
-        //    Debug.Log("elo");
-        //    //if no this same type and is place equip item
-        //    if (eqArmors.Count < 5)
-        //    {
+            Debug.Log("elo");
+            //if no this same type and is place equip item
+            if (eqArmors.Count < 5)
+            {
 
-        //        eqArmors.Add(it);
-        //        eqSlots.Remove(it);
+                eqArmors.Add(it);
+                eqSlots.Remove(it);
 
-        //        //Update Ui
-        //        if (eqArmorsChange != null)
-        //            eqArmorsChange.Invoke();
+                //Update Ui
+                if (eqArmorsChange != null)
+                    eqArmorsChange.Invoke();
 
-        //        return true;
-        //    }
+                return true;
+            }
             
 
-        //}
-        //else //it is skills TODO
-        //{
+        }
+        else //it is skills TODO
+        {
 
-        //}
-        //return false;
+        }
+        return false;
     }
 
     public bool UnEquip(AbilityController it)
     {
+        if (it is Armor)
+        {
+            if (eqSlots.Count < 10)
+            {
+                //Remove from eq and and to main slots
+                eqSlots.Add(it);
+                eqArmors.Remove(it);
+
+               //UpdateUi
+                if (eqArmorsChange != null)
+                    eqArmorsChange.Invoke();
+
+                return true;
+            }
+            return false;
+        }
+        else //if its skill
+        {
+
+        }
         return true;
-        //if (it is Armor)
-        //{
-        //    if (eqSlots.Count < 10)
-        //    {
-        //        //Remove from eq and and to main slots
-        //        eqSlots.Add(it);
-        //        eqArmors.Remove(it);
-
-        //       //UpdateUi
-        //        if (eqArmorsChange != null)
-        //            eqArmorsChange.Invoke();
-
-        //        return true;
-        //    }
-        //    return false;
-        //}
-        //else //if its skill
-        //{
-
-        //}
-        //return true;
     }
     public void RemoveItem(Item it)
     {
