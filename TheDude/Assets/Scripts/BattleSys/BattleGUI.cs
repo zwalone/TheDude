@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BattleGUI : MonoBehaviour
 {
     [SerializeField]
-    Text Info;
+    public Text Info;
     public BattleSystem bs;
     Queue<string> massages;
     bool onScreen;

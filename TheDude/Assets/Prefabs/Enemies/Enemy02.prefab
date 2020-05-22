@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charName: Dziki Dzik
   maxHP: 70
+  actionPoints: 0
   hp: 70
   Atk:
     val: 10
@@ -68,6 +69,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 216134133995080329}
   ability: []
+  dialogue:
+    name: Dziki Dzik
+    sentences:
+    - Dziki Dziki Dziki DZIK!!
+    - Chrum Chrum
+    - "Zje\u015B\u0107 ci\u0119"
 --- !u!1 &8819876588778987363
 GameObject:
   m_ObjectHideFlags: 0
