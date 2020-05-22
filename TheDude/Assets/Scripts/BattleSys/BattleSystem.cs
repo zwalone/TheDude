@@ -29,6 +29,7 @@ public class BattleSystem : MonoBehaviour
     public BattleGUI GUI;
     public int turn;
     private bool whoFirst;
+    public Entity ActiveEntity;
 
     private void Start() 
     {
@@ -53,7 +54,7 @@ public class BattleSystem : MonoBehaviour
         GUI.SetInfo("Jazda");
         yield return new WaitForSeconds(2f);
 
-        if(player.stats.Dex.Val > enemy.stats.Dex.Val)
+        if(player.Stats.Dex.Val > enemy.Stats.Dex.Val)
             whoFirst = true;
         else 
             whoFirst = false;
@@ -67,12 +68,15 @@ public class BattleSystem : MonoBehaviour
         GUI.SetInfo("Turn #" + turn);
         if(afterEffects != null)
 		    afterEffects();
-        player.stats.ResetAC();
+        player.Stats.ResetAC();
         HUD.UpdateHUD();
         IsDead();
 
-        if(whoFirst)
+        if (whoFirst)
+        {
+            ActiveEntity = player;
             state = BattleState.PLAYERTURN;
+        }
         else
         {
             state = BattleState.ENEMYTURN;
@@ -95,26 +99,32 @@ public class BattleSystem : MonoBehaviour
 
      public IEnumerator PlayerAction(int act)
     {
-       if(player.stats.CastSkill(player.ability[act].cost))
-        {
-            player.ability[act].Use();
+       //if(player.Stats.CastSkill(player.Skills[act].cost))
+       if(true)
+       {
+            //player.Skills[act].Activate();
             HUD.UpdateHUD();
             yield return new WaitForSeconds(2f);
-        }
+       }
     }
 
     IEnumerator EnemyTurn()
     {
+        ActiveEntity = enemy;
         yield return new WaitForSeconds(1f);
         GUI.SetInfo("Enemy Attack !");
-        player.stats.TakeDamage(-10);
+        player.Stats.TakeDamage(-10);
         HUD.UpdateHUD();
         yield return new WaitForSeconds(1f);
-        
-        if(whoFirst)
+
+        if (whoFirst)
             NextTurn();
         else
+        {
+            ActiveEntity = player;
             state = BattleState.PLAYERTURN;
+        }
+            
         
     }
 
@@ -140,13 +150,13 @@ public class BattleSystem : MonoBehaviour
 
     bool IsDead()
     {
-        if(!enemy.stats.IsAlive())
+        if(!enemy.Stats.IsAlive())
 		{
             state = BattleState.WON;
 			EndBattle();
             return true;
 		}
-        else if(!player.stats.IsAlive())
+        else if(!player.Stats.IsAlive())
 		{
             state = BattleState.LOST;
 			EndBattle();	

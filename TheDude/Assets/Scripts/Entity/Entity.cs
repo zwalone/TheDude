@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    public CharacterStats stats;
+    public Entity Opponent { get; set; }
+    public CharacterStats Stats;
+    public List<Skill> Skills;
 
-    [SerializeField]
-    public List<AbilityController> ability;
-
-    public void AddAbility(AbilityController ab)
+    public int MakeChoice()
     {
-        // check condition and add create ability controller
+        return 0;
+        //AI will decide which action to choose
     }
 
-     public void RemoveAbility(AbilityController ab)
+    public void MakeAction()
     {
-        // check condition and remove ability controller 
+        int act = MakeChoice();
+        //can cast skill
+        //if (Skills[act].CanActivate(this, Opponent))
+            Skills[act].Activate(this, Opponent);
     }
-
 }

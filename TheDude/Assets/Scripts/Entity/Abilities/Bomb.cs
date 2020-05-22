@@ -31,9 +31,9 @@ public class Bomb : AbilityController
     {
         if(bs.turn == explodeTime)
         {
-            int dmg = (int)(bs.player.stats.Atk.Val * dmgscale*counter*counter);
+            int dmg = (int)(bs.player.Stats.Atk.Val * dmgscale*counter*counter);
             bs.GUI.SetInfo("EXPLODE!!!");
-            bs.enemy.stats.TakeDamage(-dmg);
+            bs.enemy.Stats.TakeDamage(-dmg);
             bs.afterEffects -= Explode;
             explodeTime = -1;
         }

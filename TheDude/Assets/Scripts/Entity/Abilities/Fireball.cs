@@ -13,9 +13,10 @@ public class Fireball : AbilityController
         base.Use();
         bs=BattleSystem.Instance;
 
-        int dmg = (int)(bs.player.stats.Atk.Val * dmgscale); 
+
+        int dmg = (int)(bs.player.Stats.Atk.Val * dmgscale); 
         Debug.Log("Atakuje " + dmg);
-        bs.enemy.stats.TakeDamage(-dmg);
+        bs.enemy.Stats.TakeDamage(-dmg);
         bs.afterEffects += Ignite;
     }     
     public override void Remove(){
@@ -24,9 +25,9 @@ public class Fireball : AbilityController
 
     void Ignite()
     {
-        int dmg = (int)(bs.player.stats.Atk.Val * dmgscale*0.5);
+        int dmg = (int)(bs.player.Stats.Atk.Val * dmgscale*0.5);
         bs.GUI.SetInfo("Burn!");
-        bs.enemy.stats.TakeDamage(-dmg);
+        bs.enemy.Stats.TakeDamage(-dmg);
         bs.afterEffects -= Ignite;
     }
 

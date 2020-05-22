@@ -14,10 +14,10 @@ public class Heal : AbilityController
         base.Use();
         bs = BattleSystem.Instance;
 
-        bs.player.stats.Hp = healValue;
+        bs.player.Stats.Hp = healValue;
         bs.GUI.SetInfo("Heal +" + healValue + "HP");
 
-        bs.player.stats.Def.AddModifire(defBuff);
+        bs.player.Stats.Def.AddModifire(defBuff);
         bs.GUI.SetInfo("Def Buff +" + defBuff + " Armor");
 
     }     

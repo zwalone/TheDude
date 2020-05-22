@@ -1,10 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    public string charName;
+    public string CharName;
+    public Type TypeOfEntity;
+
+    #region Properties
     [SerializeField]
     private int maxHP;
     public int MaxHP 
@@ -12,7 +16,6 @@ public class CharacterStats : MonoBehaviour
         get{return maxHP;}
         set{maxHP = value;}
     }
-    [SerializeField]
     private int actionPoints;
     public int ActionPoints 
     { 
@@ -43,16 +46,23 @@ public class CharacterStats : MonoBehaviour
     //Number of action in turn
     public Stat Dex;
 
-   public void TakeDamage(int dmg)
+    #endregion
+    public void TakeDamage(double dmg)
     {
-        int tmp = Def.GetModifires();
-        tmp += dmg;
-        if(tmp < 0)
+        //double tmp = Def.GetModifires();
+        //tmp += dmg;
+        TakeFlatDamage(-dmg);
+    }
+    public void TakeFlatDamage(double dmg)
+    {
+        if (dmg < 0)
         {
-             Hp = tmp;
-             BattleSystem.Instance.GUI.SetInfo(tmp + "HP");
-
-        }   
+            Hp = (int)dmg;
+        }
+    }
+    public double CalculateDamage()
+    {
+        return Atk.Val;
     }
 
     public bool CastSkill(int cost)
@@ -71,12 +81,7 @@ public class CharacterStats : MonoBehaviour
         else return true;
     }
 
-    public void ResetHP()
-    {
-        Hp = MaxHP;
-    }
-    public void ResetAC()
-    {
-        ActionPoints = Dex.Val;
-    }
+    public void ResetHP() => Hp = MaxHP;
+    public void ResetAC() => ActionPoints = Dex.Val;
+
 }

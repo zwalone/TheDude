@@ -17,11 +17,11 @@ public class BattleHUD : MonoBehaviour
 
     public void SetHUD()
     {
-        plStats = BattleSystem.Instance.player.stats;
-        enStats = BattleSystem.Instance.enemy.stats;
+        plStats = BattleSystem.Instance.player.Stats;
+        enStats = BattleSystem.Instance.enemy.Stats;
 
-        plName.text= plStats.charName;
-        enName.text = enStats.charName;
+        plName.text= plStats.CharName;
+        enName.text = enStats.CharName;
 
         plHp.maxValue = plStats.MaxHP;
         enHp.maxValue = enStats.MaxHP;

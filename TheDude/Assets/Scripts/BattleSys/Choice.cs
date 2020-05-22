@@ -19,7 +19,7 @@ public class Choice : MonoBehaviour
     public void Opt3()
     {
         End();
-        BattleSystem.Instance.enemy.stats.Atk.AddModifire(15);
+        BattleSystem.Instance.enemy.Stats.Atk.AddModifire(15);
         StartCoroutine(BattleSystem.Instance.SetupBattle());
     }
 
