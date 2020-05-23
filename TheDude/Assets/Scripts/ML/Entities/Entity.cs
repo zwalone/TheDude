@@ -39,7 +39,7 @@ public class Entity : MonoBehaviour
             string logFromAction = Skills[act].Activate(this, Opponent);
             log.AddToLog(logFromAction);
         }
-        else log.AddToLog($"{Stats.CharName} Wait for cooldown");
+        else log.AddToLog($"{Stats.CharName} \nWait for cooldown");
 
         if(Opponent.Stats.MissLog) log.AddToLog($"{Stats.CharName} Miss ");
 

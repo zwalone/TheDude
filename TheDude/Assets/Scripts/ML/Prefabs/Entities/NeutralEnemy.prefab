@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7093289319766922837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5858814530150521708}
+  - component: {fileID: 8898485266801856816}
+  - component: {fileID: 1308823105921759548}
+  m_Layer: 0
+  m_Name: NeutralEnemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5858814530150521708
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7093289319766922837}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8898485266801856816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7093289319766922837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e511fc9a93ab5a042b9750ab6e6c07e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharName: NeutralEnemy
+  TypeOfEntity: 0
+  MissLog: 0
+  maxHP: 100
+  hp: 100
+  atk: 10
+  def: 2
+  dex: 10
+--- !u!114 &1308823105921759548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7093289319766922837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00141e23746e8dd40819c03b95175d0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Stats: {fileID: 8898485266801856816}
+  Skills:
+  - {fileID: 3917837233176730470, guid: c21c5b9d71f476a43bacd015564e5da0, type: 3}
+  - {fileID: 3416585035064886320, guid: a692298757b06894bb2ac6a4fbc329dc, type: 3}
+  - {fileID: 664891947551928797, guid: a5de274c129dc7543a7d7cf7ea8a6da6, type: 3}
+  - {fileID: 3139715165129336769, guid: e5df13a1e127ba74eb7482b967dc5e74, type: 3}
+  LastAttackType: 0

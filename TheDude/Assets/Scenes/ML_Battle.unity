@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 5019998452686049309, guid: a0c45e65102f026438bf2b0973290059, type: 3}
-  enemy: {fileID: 1128287747}
+  enemy: {fileID: 3195580232308290130, guid: 6c657b7ed70124b4ea67b41d995cd995, type: 3}
   view: {fileID: 1953332667}
   turn: 0
   battleFinished: 0
@@ -231,8 +231,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.3676551, y: 0.10195711, z: 0.010426856}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1128287749}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1762,77 +1761,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091821021}
   m_CullTransparentMesh: 0
---- !u!1 &1128287746
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1128287749}
-  - component: {fileID: 1128287750}
-  - component: {fileID: 1128287747}
-  m_Layer: 0
-  m_Name: FireEnemy
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1128287747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1128287746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 998c3661f63e0fb4ab898180423a9814, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Stats: {fileID: 1128287750}
-  Skills:
-  - {fileID: 4884765445687234366, guid: 675e95cb95c308d48b84715e3554d165, type: 3}
-  - {fileID: 3030910452489734579, guid: c0498bd9d5619c746a1a4a76bdfcbcd1, type: 3}
-  - {fileID: 1246931015656599256, guid: ba3f5faade9d9d24389f377f3564d27d, type: 3}
-  - {fileID: 3416585035064886320, guid: a692298757b06894bb2ac6a4fbc329dc, type: 3}
-  LastAttackType: 0
---- !u!4 &1128287749
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1128287746}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 43059457}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1128287750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1128287746}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e511fc9a93ab5a042b9750ab6e6c07e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CharName: Enemy
-  TypeOfEntity: 1
-  MissLog: 0
-  maxHP: 100
-  hp: 100
-  atk: 10
-  def: 2
-  dex: 10
 --- !u!1 &1131033909
 GameObject:
   m_ObjectHideFlags: 0

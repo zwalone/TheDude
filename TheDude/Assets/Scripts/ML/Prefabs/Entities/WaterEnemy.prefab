@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5741755486700023781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3520831538650796864}
+  - component: {fileID: 7949889915357871209}
+  - component: {fileID: 3195580232308290130}
+  m_Layer: 0
+  m_Name: WaterEnemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3520831538650796864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5741755486700023781}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7949889915357871209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5741755486700023781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e511fc9a93ab5a042b9750ab6e6c07e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharName: WaterEnemy
+  TypeOfEntity: 3
+  MissLog: 0
+  maxHP: 100
+  hp: 100
+  atk: 10
+  def: 2
+  dex: 10
+--- !u!114 &3195580232308290130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5741755486700023781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2aac15ca661e74645823eb8579c00f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Stats: {fileID: 7949889915357871209}
+  Skills:
+  - {fileID: 5625932761770894562, guid: f97e7decf6a4919479c2abb8071a9130, type: 3}
+  - {fileID: 664891947551928797, guid: a5de274c129dc7543a7d7cf7ea8a6da6, type: 3}
+  - {fileID: 3917837233176730470, guid: c21c5b9d71f476a43bacd015564e5da0, type: 3}
+  - {fileID: 2940125065601877669, guid: 5567a54f64a79484cb7e0d9b5b92be74, type: 3}
+  LastAttackType: 0

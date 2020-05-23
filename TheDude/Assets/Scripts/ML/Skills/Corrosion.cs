@@ -15,6 +15,6 @@ public class Corrosion : Skill
         user.Effects.SetModifire("Def", opponent, -DefDebuff, Duration);
 
         //Log
-        return $"{opponent.Stats.CharName}\n Corrosion({Duration}): Def- {DefDebuff}";
+        return $"{user.Stats.CharName}\n Corrosion({Duration}): Def- {DefDebuff}";
     }
 }

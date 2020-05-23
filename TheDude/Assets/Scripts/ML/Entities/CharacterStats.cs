@@ -44,7 +44,7 @@ public class CharacterStats : MonoBehaviour
     public int Dex
     {
         get { return dex; }
-        set { dex = Value0To100(value, dex); }
+        set { Debug.Log($"Zmiana {dex} + {value} =>>> {Value0To100(value, dex)}" );  dex = Value0To100(value, dex); }
     }
 
     #endregion

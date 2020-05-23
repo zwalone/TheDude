@@ -9,27 +9,21 @@ public class FireEnemy : Entity
 
     public override int MakeChoice()
     {
-        if (Stats.Hp - Opponent.Stats.Hp > 20)
-        {
-            lastSkill = 3;
-            return 3;
-        } 
+        int choice = Decision();
+        lastSkill = choice;
+        return choice;
+    }
+
+    int Decision()
+    {
+        if (Stats.Hp - Opponent.Stats.Hp > 20) return 3;
+        
         BurnAll burn = Skills[1] as BurnAll;
         int dmg = burn.GetApproximation(this, Opponent);
-        if (dmg > Opponent.Stats.Hp && dmg < Stats.Hp)
-        {
-            lastSkill = 1;
-            return 1;
-        }
-        if (lastSkill == 2)
-        {
-            lastSkill = 0;
-            return 0;
-        }
-        else
-        {
-            lastSkill = 2;
-            return 2;
-        }
+        if (dmg > Opponent.Stats.Hp && dmg < Stats.Hp) return 1;
+        
+        if (lastSkill == 2) return 0;
+        else return 2;
+        
     }
 }

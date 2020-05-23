@@ -35,13 +35,13 @@ public class BattleSystem : MonoBehaviour
     {
         //if(GameManager.Instance.nextEnemy != null)
         // StartCoroutine(SetupBattle(GameManager.Instance.nextEnemy));
-        if (GameManager.Instance.nextEnemy != null)
-        {
-            state = BattleState.START;
-            enemyGO = (GameObject)Instantiate(GameManager.Instance.nextEnemy);
-            enemy = enemyGO.GetComponent<Enemy>();
-            //DialogueManager.Instance.StartDialogue(enemy.dialogue);
-        }
+        //if (GameManager.Instance.nextEnemy != null)
+        //{
+        //    state = BattleState.START;
+        //    enemyGO = (GameObject)Instantiate(GameManager.Instance.nextEnemy);
+        //    enemy = enemyGO.GetComponent<Enemy>();
+        //    //DialogueManager.Instance.StartDialogue(enemy.dialogue);
+        //}
             
     }
 

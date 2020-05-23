@@ -65,5 +65,15 @@ public class AfterEffect
         eachTime.Add(new object[] { statName, entity, value, time });
     }
 
-    public void ClearAll() { }
+    public void ClearAll() 
+    {
+        eachTime.Clear();
+        foreach (var item in oneTime)
+        {
+            item[3] = 0;
+        }
+    
+    }
+
+    public int GetNumberOfEffect() => oneTime.Count + eachTime.Count;
 }
