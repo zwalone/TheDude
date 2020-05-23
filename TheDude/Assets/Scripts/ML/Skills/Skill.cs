@@ -23,13 +23,14 @@ public class Skill : MonoBehaviour
         CalculateModifire(user, opponent);
         _damage = user.Stats.CalculateDamage() * _modifire * powerScale;
     }
-    public void CalculateModifire(Entity user, Entity opponent)
+    public double CalculateModifire(Entity user, Entity opponent)
     {
         double SameTypeSkill = Types.SameType(user.Stats.TypeOfEntity, TypeOfSkill);
         double OpponentWeakness = Types.GetAttackTypeModifire(TypeOfSkill, opponent.Stats.TypeOfEntity);
         double ComboBonus = Types.GetPreviousAttackBonus(TypeOfSkill, user.LastAttackType);
 
         _modifire = SameTypeSkill * OpponentWeakness * ComboBonus;
+        return _modifire;
     }
     public bool CanActivate()
     {
@@ -40,5 +41,7 @@ public class Skill : MonoBehaviour
     {
         if (_cooldownCounter > 0) _cooldownCounter--;
     }
+
+
   
 } 
