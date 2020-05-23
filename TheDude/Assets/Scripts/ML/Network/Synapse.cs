@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Data;
 using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
 using System.IO;
 using System;
 
@@ -19,9 +17,7 @@ public class Synapse
     public Synapse(Neuron fromneuron, Neuron toneuron)
     {
         FromNeuron = fromneuron; ToNeuron = toneuron;
-        
-        //Weight = tmp.NextDouble() - 0.5;
-        Weight = tmp.NextDouble();
+        Weight = tmp.NextDouble() -0.5;
         //Debug.Log($"Weight {Weight}");
     }
 

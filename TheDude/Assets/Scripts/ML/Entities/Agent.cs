@@ -12,29 +12,24 @@ public class Agent : Entity
     public double HpScale;
     public double ModifireScale;
 
-    private void Awake()
-    {
-        Debug.Log("Start:");
-        _network = new Network(18, 2, 8, 10);
-    }
-
-    private void Start()
-    {
-        
-    }
     public double GetScore()=> _score * ModifireScale + (Opponent.Stats.Hp / Opponent.Stats.MaxHP) * HpScale;
    
     public override int MakeChoice()
     {
         _network.PushInputValues(GetInputs());
-        if (_network == null) Debug.Log("jest nullem");
+
         List<double> choices = _network.GetOutput();
+
+        for (int i = 0; i < choices.Count; i++)
+        {
+            Debug.Log(choices[i]);
+        }
 
         int num = 0; 
         for (int i = 0; i < 10; i++)
         {
             num = choices.IndexOf(choices.Max());
-            if (Skills[num].Cooldown == 0) break;
+            if (Skills[num].CanActivate()) break;
             else choices[num] = 0;
         }
 
@@ -49,8 +44,10 @@ public class Agent : Entity
     double[] GetInputs()
     {
         CharacterStats Ostats =  Opponent.Stats;
-        double[] inputs = new double[] { Stats.Hp / Stats.MaxHP * 100, Stats.Atk, Stats.Def, Stats.Dex, 
-            Ostats.Hp / Ostats.MaxHP * 100, Ostats.Atk, Ostats.Def, Ostats.Dex,0,0,0,0,0,0,0,0,0,0};
+        double[] inputs = new double[] { (double)Stats.Hp / (double)Stats.MaxHP * 100.0, (double)Stats.Atk, (double)Stats.Def,
+            (double)Stats.Dex,
+            (double)Ostats.Hp / (double)Ostats.MaxHP * 100, (double)Ostats.Atk, (double)Ostats.Def, (double)Ostats.Dex,
+            0,0,0,0,0,0,0,0,0,0};
 
         inputs[(int)Stats.TypeOfEntity+8] = 1;
         inputs[(int)Opponent.Stats.TypeOfEntity + 13] = 1;
