@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Data;
+using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
+using System.IO;
+using System;
 
-public class Synapse
+public class Synapse 
 {
     
-    static Random tmp = new Random();
+    static System.Random tmp = new System.Random();
     internal Neuron FromNeuron, ToNeuron;
     public double Weight { get; set; }
     public double OutputValue { get; set; }
@@ -13,8 +19,10 @@ public class Synapse
     public Synapse(Neuron fromneuron, Neuron toneuron)
     {
         FromNeuron = fromneuron; ToNeuron = toneuron;
+        
         //Weight = tmp.NextDouble() - 0.5;
-        Weight = (double)UnityEngine.Random.Range(0.0f, 1.0f);
+        Weight = tmp.NextDouble();
+        //Debug.Log($"Weight {Weight}");
     }
 
     public Synapse(Neuron toneuron, double output) // synapsa połączona z neuronami wejściowymi

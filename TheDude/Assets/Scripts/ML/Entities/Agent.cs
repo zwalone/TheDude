@@ -6,21 +6,28 @@ using UnityEngine;
 
 public class Agent : Entity
 {
-    Network _network;
+    Network _network = new Network(18, 2, 8, 10);
     double _score;
 
     public double HpScale;
     public double ModifireScale;
 
+    private void Awake()
+    {
+        Debug.Log("Start:");
+        _network = new Network(18, 2, 8, 10);
+    }
+
     private void Start()
     {
-        _network = new Network(18,8,8,10);
+        
     }
     public double GetScore()=> _score * ModifireScale + (Opponent.Stats.Hp / Opponent.Stats.MaxHP) * HpScale;
    
     public override int MakeChoice()
     {
         _network.PushInputValues(GetInputs());
+        if (_network == null) Debug.Log("jest nullem");
         List<double> choices = _network.GetOutput();
 
         int num = 0; 
@@ -47,6 +54,12 @@ public class Agent : Entity
 
         inputs[(int)Stats.TypeOfEntity+8] = 1;
         inputs[(int)Opponent.Stats.TypeOfEntity + 13] = 1;
+
+        //Percent of Stats
+        for (int i = 0; i < 8; i++)
+        {
+            inputs[i] = inputs[i] / 100.0;
+        }
 
         return inputs;
     }
