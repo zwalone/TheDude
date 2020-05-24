@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MLBattle : MonoBehaviour
 {
-    public Entity agent;
+    public Agent agent;
     public Entity enemy;
 
     public MLBattleView view;
@@ -15,12 +15,11 @@ public class MLBattle : MonoBehaviour
     int _slowBattle;
     private void Start()
     {
-        view.SetView(agent, enemy);
         SetupBattle();
     }
     private void Update()
     {
-        if (!view.LogOpen())
+        if (!view.LogOpen() && !battleFinished)
         {
             if (_slowBattle == 0)
             {
@@ -33,6 +32,7 @@ public class MLBattle : MonoBehaviour
     }
     public void SetupBattle()
     {
+        view.SetView(agent, enemy);
         turn = 0;
         agent.Opponent = enemy;
         enemy.Opponent = agent;

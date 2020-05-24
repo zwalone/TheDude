@@ -15,7 +15,7 @@ public class Network
         for (int i = 0; i < hiddenlayerscount; i++)
             AddNextLayer(new Layer(hiddenneuronscount));
         AddNextLayer(new Layer(outputneuronscount));
-        Debug.Log("Stworzona sieć");
+        //Debug.Log("Stworzona sieć");
     }
 
     private void AddFirstLayer(int inputneuronscount)
@@ -47,7 +47,7 @@ public class Network
         foreach (Neuron neuron in Layers[Layers.Count - 1].Neurons)
             output.Add(neuron.OutputValue);
 
-        Debug.Log($" Pobrane wartości !!++++!+!+!+!+");
+        //Debug.Log($" Pobrane wartości !!++++!+!+!+!+");
         return output;
     }
 

@@ -49,9 +49,9 @@ MonoBehaviour:
   MissLog: 0
   maxHP: 100
   hp: 100
-  atk: 15
+  atk: 25
   def: 15
-  dex: 15
+  dex: 0
 --- !u!114 &5019998452686049309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,3 +77,5 @@ MonoBehaviour:
   - {fileID: 1246931015656599256, guid: ba3f5faade9d9d24389f377f3564d27d, type: 3}
   - {fileID: 1016137341888410043, guid: 8db9ccc399b6c51459718ebbc228e9d5, type: 3}
   LastAttackType: 0
+  HpScale: 1
+  ModifireScale: 1

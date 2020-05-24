@@ -49,9 +49,9 @@ MonoBehaviour:
   MissLog: 0
   maxHP: 100
   hp: 100
-  atk: 10
+  atk: 20
   def: 2
-  dex: 10
+  dex: 0
 --- !u!114 &8627107141956430697
 MonoBehaviour:
   m_ObjectHideFlags: 0

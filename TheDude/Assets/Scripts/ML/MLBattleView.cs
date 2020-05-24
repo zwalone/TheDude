@@ -36,6 +36,7 @@ public class MLBattleView : MonoBehaviour
         enStats.ResetHP();
 
         BattleStateTxt.text = "Fighting...";
+        BattleStateImg.color = Color.blue;
         UpdateView();
     }
 

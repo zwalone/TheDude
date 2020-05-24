@@ -13,17 +13,19 @@ public class Agent : Entity
     public double ModifireScale;
 
     public double GetScore()=> _score * ModifireScale + (Opponent.Stats.Hp / Opponent.Stats.MaxHP) * HpScale;
-   
+    public List<double> GetWeights() => _network.GetWeights();
+    public void PushWeights(List<double> weights) => _network.PushWeights(weights);
+
     public override int MakeChoice()
     {
         _network.PushInputValues(GetInputs());
 
         List<double> choices = _network.GetOutput();
 
-        for (int i = 0; i < choices.Count; i++)
-        {
-            Debug.Log(choices[i]);
-        }
+        //for (int i = 0; i < choices.Count; i++)
+        //{
+        //    Debug.Log(choices[i]);
+        //}
 
         int num = 0; 
         for (int i = 0; i < 10; i++)
