@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Network 
 {
     internal List<Layer> Layers;
     internal float LearningRate = 5f;
+    static System.Random rand = new System.Random();
 
     public Network(int inputneuronscount, int hiddenlayerscount, int hiddenneuronscount, int outputneuronscount)
     {
@@ -51,8 +53,9 @@ public class Network
         return output;
     }
 
-    //Change Weights with mutations here <--- After clone :)
-    public void ChangeWeights()
+    //Change Weights with mutations calculate propability foreach all synapse and change to random weights
+        //is possible with other form mutation like swap weights, invertions weight, scramble (permutations :) weights) 
+    public void ChangeWeights(double mutationRate)
     {
         foreach (Layer layer in Layers)
         {
@@ -60,10 +63,14 @@ public class Network
             {
                 foreach (Synapse synapse in neuron.Inputs)
                 {
-                    double percent = (double)UnityEngine.Random.Range(-LearningRate, LearningRate);
-                    double delta = synapse.Weight * (percent / 100);
-                    Debug.Log($"Synapse Weight : {synapse.Weight} Delta : {delta}");
-                    synapse.Weight += delta;
+                    if (mutationRate < rand.NextDouble())
+                    {
+                        synapse.Weight = rand.NextDouble() - 0.5;
+                    }
+                    //double percent = (double)UnityEngine.Random.Range(-LearningRate, LearningRate);
+                    //double delta = synapse.Weight * (percent / 100);
+                    //Debug.Log($"Synapse Weight : {synapse.Weight} Delta : {delta}");
+                    //synapse.Weight += delta;
                 }
             }
         }
@@ -84,6 +91,26 @@ public class Network
                 }
             }
         }
+    }
+
+    //Crossover parents weights crossover max 0.5
+    public void PushWeightsFromParents(List<double> dad , List<double> mom, double crossoverPercent = 0.05 , double mutationRate = 0.01)
+    {
+        double tempVlaue = (double)dad.Count * crossoverPercent;
+        int cross = (int)Math.Round(tempVlaue,0);
+
+        Debug.Log($"Percent : {crossoverPercent} | Count Synapse :{dad.Count}  | How much to change {cross}");
+
+        List<double> son = dad;
+        for (int i = 0; i < cross; i++)
+        {
+            int temp = rand.Next(0, dad.Count);
+            son[temp] = mom[temp];
+            son[temp + 1] = mom[temp + 1];
+        }
+
+        PushWeights(son);
+        ChangeWeights(mutationRate);
     }
 
     //return list weights ,,winnig'' object

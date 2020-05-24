@@ -60,7 +60,7 @@ public class MLManager : MonoBehaviour
     void Train()
     {
         //Inne rzeczy które potrzebujesz tutaj dobre miejsce 
-        //UpdateWeights();
+        UpdateWeights();
         foreach (var battle in Battles)
         {
             battle.SetupBattle();
@@ -80,13 +80,20 @@ public class MLManager : MonoBehaviour
     void UpdateWeights()//Tutaj implementujesz algorytmy kto po kim bierze wagi i jak 
     {
         var score = GetScore();
-        int bestEntity = score.IndexOf(score.Max());
+        //Take Best Dad Entity
+        int bestEntityDad = score.IndexOf(score.Max());
+        score[bestEntityDad] = 0;
+        var bestWeightsDad = Battles[bestEntityDad].agent.GetWeights();
 
-        var bestWeights = Battles[bestEntity].agent.GetWeights();
+        //Take secound best Entity
+        int bestEntityMom = score.IndexOf(score.Max());
+        var bestWeightsMom = Battles[bestEntityMom].agent.GetWeights();
+        
 
         foreach (var battle in Battles)
         {
-            battle.agent.PushWeights(bestWeights); //Zrób mutacje tutaj ale już bezpośrednio w sieci
+            //TODO : UI for corssover to change and mutation change
+            battle.agent.PushWeightsFromParents(bestWeightsDad, bestWeightsMom, 0.05); //Zrób mutacje tutaj ale już bezpośrednio w sieci
         }
 
     }

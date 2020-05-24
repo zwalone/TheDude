@@ -16,6 +16,10 @@ public class Agent : Entity
     public List<double> GetWeights() => _network.GetWeights();
     public void PushWeights(List<double> weights) => _network.PushWeights(weights);
 
+    //Method to crossover Parents
+    public void PushWeightsFromParents(List<double> dad, List<double> mom, double crossoverPercent = 0.05)
+        => _network.PushWeightsFromParents(dad , mom, crossoverPercent);
+
     public override int MakeChoice()
     {
         _network.PushInputValues(GetInputs());
