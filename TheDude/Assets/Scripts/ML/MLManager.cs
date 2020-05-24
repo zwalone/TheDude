@@ -11,9 +11,14 @@ public class MLManager : MonoBehaviour
 {
     public int NumOfBattles;
     public int BattleSpeed;
+    public double MutationRate;
+    public int Generation;
+    public int HighestScore;
+    //Inne parametry...
     public List<MLBattle> Battles;
     public List<MLBattleView> Views;
 
+    public MLManagerView ManagerView;
     public GameObject ViewPrefab;
     public GameObject BattlePrefab;
     public GameObject MainView;
@@ -22,6 +27,7 @@ public class MLManager : MonoBehaviour
     public Entity EnemyPrefab;
     public void Start()
     {
+        ManagerView.MutationRateText.text = "Mutation Rate: 12%"; // Możesz zrobić tak by łanie było i działało
         Debug.Log("Inicjuje...");
         for (int i = 0; i < NumOfBattles; i++)
         {
