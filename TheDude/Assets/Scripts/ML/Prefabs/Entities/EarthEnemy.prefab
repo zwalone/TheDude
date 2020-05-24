@@ -47,11 +47,10 @@ MonoBehaviour:
   CharName: EarthEnemy
   TypeOfEntity: 4
   MissLog: 0
-  maxHP: 100
-  hp: 100
-  atk: 20
-  def: 2
-  dex: 0
+  MaxHP: 100
+  BaseAtk: 10
+  BaseDef: 5
+  BaseDex: 5
 --- !u!114 &8627107141956430697
 MonoBehaviour:
   m_ObjectHideFlags: 0

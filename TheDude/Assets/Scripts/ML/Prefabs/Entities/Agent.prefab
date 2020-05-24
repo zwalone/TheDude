@@ -47,11 +47,10 @@ MonoBehaviour:
   CharName: Agent
   TypeOfEntity: 0
   MissLog: 0
-  maxHP: 100
-  hp: 100
-  atk: 25
-  def: 15
-  dex: 0
+  MaxHP: 100
+  BaseAtk: 11
+  BaseDef: 10
+  BaseDex: 10
 --- !u!114 &5019998452686049309
 MonoBehaviour:
   m_ObjectHideFlags: 0

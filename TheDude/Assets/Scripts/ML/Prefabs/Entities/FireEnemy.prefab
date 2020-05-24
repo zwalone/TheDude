@@ -47,11 +47,10 @@ MonoBehaviour:
   CharName: FireEnemy
   TypeOfEntity: 1
   MissLog: 0
-  maxHP: 100
-  hp: 100
-  atk: 10
-  def: 2
-  dex: 10
+  MaxHP: 100
+  BaseAtk: 15
+  BaseDef: 15
+  BaseDex: 15
 --- !u!114 &894697709580825604
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -47,11 +47,10 @@ MonoBehaviour:
   CharName: WaterEnemy
   TypeOfEntity: 3
   MissLog: 0
-  maxHP: 100
-  hp: 100
-  atk: 10
-  def: 2
-  dex: 10
+  MaxHP: 100
+  BaseAtk: 20
+  BaseDef: 20
+  BaseDex: 19
 --- !u!114 &3195580232308290130
 MonoBehaviour:
   m_ObjectHideFlags: 0

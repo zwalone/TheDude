@@ -9,57 +9,46 @@ public class CharacterStats : MonoBehaviour
     public Type TypeOfEntity;
     public bool MissLog;
 
-    #region Properties
-    [SerializeField]
-    private int maxHP;
-    public int MaxHP 
-    { 
-        get{return maxHP;}
-        set{maxHP = value;}
-    }
+    [Range(0, 100)]
+    public int MaxHP;
+    [Range(0, 100)]
+    public int BaseAtk;
+    [Range(0, 100)]
+    public int BaseDef;
+    [Range(0, 100)]
+    public int BaseDex;
 
-    [SerializeField]
-    private int hp;
-    public int Hp 
-    { 
-        get{return hp;}
-        set{ hp = Value0To100(value, hp);}
-    }
-    [SerializeField]
-    private int atk;
-    public int Atk
-    {
-        get { return atk; }
-        set { atk = Value0To100(value, atk); }
-    }
-    [SerializeField]
-    private int def;
-    public int Def
-    {
-        get { return atk; }
-        set { def = Value0To100(value, def); }
-    }
-    [SerializeField]
-    private int dex;
-    public int Dex
-    {
-        get { return dex; }
-        set { dex = Value0To100(value, dex); }
-    }
+    [NonSerialized]
+    public int Hp;
+    [NonSerialized]
+    public int Atk;
+    [NonSerialized]
+    public int Def;
+    [NonSerialized]
+    public int Dex;
 
-    #endregion
+    public void SetDex(int modifire) => Dex = Value0To100(Dex + modifire);
+    public void SetDef(int modifire) => Def = Value0To100(Def + modifire);
+    public void SetAtk(int modifire) => Atk = Value0To100(Atk + modifire);
+    public void SetHp(int modifire) => Hp = Value0To100(Hp + modifire);
 
-    int Value0To100(int value, int stat)
+    int Value0To100(int value)
     {
-        int sum = stat + value;
-        if (sum < 0) return 0;
-        else if (sum > 100) return 100;
-        else return sum;
+        if (value < 0) return 0;
+        else if (value > 100) return 100;
+        else return value;
 
+    }
+    public void ResetStats()
+    {
+        Atk = BaseAtk;
+        Def = BaseDef;
+        Dex = BaseDex;
+        Hp = MaxHP;
     }
     public void TakeDamage(double dmg)
     {
-        if (Dodge()) TakeFlatDamage(Def - dmg);
+        if (Dodge()) TakeFlatDamage(dmg - Def);
 
     }
     private bool Dodge()
@@ -77,10 +66,8 @@ public class CharacterStats : MonoBehaviour
     public void TakeFlatDamage(double dmg)
     {
         int value = (int)-dmg;
-        if (value < 0)
-        {
-            Hp = (int)value;
-        }
+        if (value < 0) SetHp((int)value);
+        
     }
     
     public bool IsAlive()
@@ -89,6 +76,5 @@ public class CharacterStats : MonoBehaviour
         else return true;
     }
     public double CalculateDamage() => Atk;
-    public void ResetHP() => Hp = MaxHP;
 
 }

@@ -32,9 +32,6 @@ public class MLBattleView : MonoBehaviour
         agHp.maxValue = agStats.MaxHP;
         enHp.maxValue = enStats.MaxHP;
 
-        agStats.ResetHP();
-        enStats.ResetHP();
-
         BattleStateTxt.text = "Fighting...";
         BattleStateImg.color = Color.blue;
         UpdateView();

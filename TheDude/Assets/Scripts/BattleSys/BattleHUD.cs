@@ -26,8 +26,6 @@ public class BattleHUD : MonoBehaviour
         plHp.maxValue = plStats.MaxHP;
         enHp.maxValue = enStats.MaxHP;
 
-        plStats.ResetHP();
-        enStats.ResetHP();
         UpdateHUD();
     }
 

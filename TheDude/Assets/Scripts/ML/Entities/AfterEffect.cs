@@ -46,10 +46,10 @@ public class AfterEffect
     }
     void ModifyStats(string statName, Entity entity, int value)
     {
-        if (statName == "Atk") entity.Stats.Atk = value;
-        else if (statName == "Def") entity.Stats.Def = value;
-        else if(statName == "Dex") entity.Stats.Dex = value;
-        else if(statName == "Hp") entity.Stats.Hp = value;
+        if (statName == "Atk") entity.Stats.SetAtk(value);
+        else if (statName == "Def") entity.Stats.SetDef(value);
+        else if(statName == "Dex") entity.Stats.SetDex(value);
+        else if(statName == "Hp") entity.Stats.SetHp(value);
         else if(statName == "FlatDmg") entity.Stats.TakeFlatDamage(value);
         else if(statName == "Dmg") entity.Stats.TakeDamage(value);
 

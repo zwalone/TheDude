@@ -32,11 +32,13 @@ public class MLBattle : MonoBehaviour
     }
     public void SetupBattle()
     {
-        view.SetView(agent, enemy);
         turn = 0;
         agent.Opponent = enemy;
         enemy.Opponent = agent;
         battleFinished = false;
+        agent.Stats.ResetStats();
+        enemy.Stats.ResetStats();
+        view.SetView(agent, enemy);
     }
     void NextTurn()
     {
