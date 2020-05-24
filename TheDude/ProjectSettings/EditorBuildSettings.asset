@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleScene.unity
     guid: 6222c16899b1c2f68b9b9ceafa7c4315
+  - enabled: 1
+    path: Assets/Scenes/Config_ML.unity
+    guid: 806f16c385c69fe41a96029d85c1025e
+  - enabled: 1
+    path: Assets/Scenes/ML_Battle.unity
+    guid: a3fa0457283918f48b0da65c2ff5f6e1
   m_configObjects: {}

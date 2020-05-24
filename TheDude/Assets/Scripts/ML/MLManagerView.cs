@@ -8,7 +8,7 @@ public class MLManagerView : MonoBehaviour
     public Text GenerationText;
     public Text HighestScoreText;
     public Text MutationRateText;
-
+    public Text CrossOverText;
 
     //Do some stuff update etc
 

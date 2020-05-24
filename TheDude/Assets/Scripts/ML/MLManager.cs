@@ -6,12 +6,14 @@ using UnityEditor;
 using UnityEditor.Build.Player;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
+using System;
 
 public class MLManager : MonoBehaviour
 {
     public int NumOfBattles;
     public int BattleSpeed;
     public double MutationRate;
+    public double Crossover;
     public int Generation;
     public int HighestScore;
     //Inne parametry...
@@ -27,7 +29,11 @@ public class MLManager : MonoBehaviour
     public Entity EnemyPrefab;
     public void Start()
     {
-        ManagerView.MutationRateText.text = "Mutation Rate: 12%"; // Możesz zrobić tak by łanie było i działało
+        if (PlayerPrefs.HasKey("mutationRate")) MutationRate = Convert.ToDouble(PlayerPrefs.GetString("mutationRate"));
+        if (PlayerPrefs.HasKey("crossover")) Crossover = Convert.ToDouble(PlayerPrefs.GetString("crossover"));
+
+        ManagerView.MutationRateText.text = $"Mutation Rate: {MutationRate * 100.0}%"; 
+        ManagerView.CrossOverText.text = $"Crossover : {Crossover * 100.0}%";
         Debug.Log("Inicjuje...");
         for (int i = 0; i < NumOfBattles; i++)
         {
@@ -67,6 +73,7 @@ public class MLManager : MonoBehaviour
         }
           
     }
+
     List<double> GetScore()
     {
         List<double> scores = new List<double>();
@@ -80,20 +87,21 @@ public class MLManager : MonoBehaviour
     void UpdateWeights()//Tutaj implementujesz algorytmy kto po kim bierze wagi i jak 
     {
         var score = GetScore();
-        //Take Best Dad Entity
+
+        //Take Best Entity (Dad)
         int bestEntityDad = score.IndexOf(score.Max());
         score[bestEntityDad] = 0;
         var bestWeightsDad = Battles[bestEntityDad].agent.GetWeights();
 
-        //Take secound best Entity
+        //Take secound best Entity (Mom)
         int bestEntityMom = score.IndexOf(score.Max());
         var bestWeightsMom = Battles[bestEntityMom].agent.GetWeights();
         
 
         foreach (var battle in Battles)
         {
-            //TODO : UI for corssover to change and mutation change
-            battle.agent.PushWeightsFromParents(bestWeightsDad, bestWeightsMom, 0.05); //Zrób mutacje tutaj ale już bezpośrednio w sieci
+            //Jedna metoda do crossover i mutation
+            battle.agent.PushWeightsFromParents(bestWeightsDad, bestWeightsMom, Crossover , MutationRate); 
         }
 
     }

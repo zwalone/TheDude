@@ -111,6 +111,7 @@ public class Network
 
         PushWeights(son);
         ChangeWeights(mutationRate);
+
     }
 
     //return list weights ,,winnig'' object
