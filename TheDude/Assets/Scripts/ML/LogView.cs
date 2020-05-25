@@ -8,7 +8,7 @@ public class LogView : MonoBehaviour
 {
     public List<string> TurnLogs;
     public Text CurrentLog;
-    string _log;
+    string _log = "Battle Just Started!!!\nLets Fight";
     string _stats;
 
     private int _head = 0;
@@ -29,6 +29,16 @@ public class LogView : MonoBehaviour
         TurnLogs.Add(_log);
         _log = $"Turn {turn}\n{_stats}\n";
     
+    }
+    public void Won()
+    {
+        TurnLogs.Add(_log);
+        TurnLogs.Add($"Agent Wygrał");
+    }
+    public void Lost()
+    {
+        TurnLogs.Add(_log);
+        TurnLogs.Add($"Agent Przegrał");
     }
     public void PreviousLog()
     {

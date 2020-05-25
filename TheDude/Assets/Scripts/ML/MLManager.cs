@@ -16,16 +16,11 @@ public class MLManager : MonoBehaviour
     public double Crossover;
     public int Generation;
     public int HighestScore;
+
     public List<MLBattle> Battles;
-    public List<MLBattleView> Views;
-
     public MLManagerView ManagerView;
-    public GameObject ViewPrefab;
-    public GameObject BattlePrefab;
-    public GameObject MainView;
+    public MLBattleFactory Factory;
 
-    public Agent AgentPrefab;
-    public Entity EnemyPrefab;
     public void Start()
     {
         if (PlayerPrefs.HasKey("mutationRate")) MutationRate = Convert.ToDouble(PlayerPrefs.GetString("mutationRate"));
@@ -33,10 +28,9 @@ public class MLManager : MonoBehaviour
 
         ManagerView.MutationRateText.text = $"Mutation Rate: {MutationRate * 100.0}%"; 
         ManagerView.CrossOverText.text = $"Crossover : {Crossover * 100.0}%";
-        Debug.Log("Inicjuje...");
         for (int i = 0; i < NumOfBattles; i++)
         {
-            CreateBattle();
+            Battles.Add(Factory.CreateBattle(BattleSpeed));
         }
         
     }
@@ -44,22 +38,6 @@ public class MLManager : MonoBehaviour
     public void Update()
     {
         //if (BattleFinished()) Train(); 
-    }
-
-    void CreateBattle()
-    {
-        var battle = Instantiate(BattlePrefab);
-        var view = Instantiate(ViewPrefab);
-        battle.transform.SetParent(transform);
-        view.transform.SetParent(MainView.transform);
-
-        Battles.Add(battle.GetComponent<MLBattle>());
-        Views.Add(view.GetComponent<MLBattleView>());
-
-        Battles.Last().view = Views.Last();
-        Battles.Last().agent = AgentPrefab;
-        Battles.Last().enemy = EnemyPrefab;
-        Battles.Last().BattleSpeed = BattleSpeed;
     }
 
     void Train()

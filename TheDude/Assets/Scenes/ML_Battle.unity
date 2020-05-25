@@ -968,6 +968,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1753705365}
   - component: {fileID: 1753705364}
+  - component: {fileID: 1753705366}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -987,24 +988,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37c83b9aa270c146a14c389013db1fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumOfBattles: 1
+  NumOfBattles: 3
   BattleSpeed: 50
   MutationRate: 0
   Crossover: 0
   Generation: 0
   HighestScore: 0
   Battles: []
-  Views: []
   ManagerView: {fileID: 1660914451}
-  ViewPrefab: {fileID: 5790375568444743159, guid: 4ac4ea01d7c2f6f4cb39e0f5d57c473c,
-    type: 3}
-  BattlePrefab: {fileID: 3108903372443000698, guid: e1d74deced4ec334b83497544d675465,
-    type: 3}
-  MainView: {fileID: 1151523158}
-  AgentPrefab: {fileID: 5019998452686049309, guid: a0c45e65102f026438bf2b0973290059,
-    type: 3}
-  EnemyPrefab: {fileID: 1308823105921759548, guid: 1d992186492930d4fb0221fb25d6fe00,
-    type: 3}
+  Factory: {fileID: 1753705366}
 --- !u!4 &1753705365
 Transform:
   m_ObjectHideFlags: 0
@@ -1019,3 +1011,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1753705366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753705363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 806bae88554c63b4a9820e7dcd5e0590, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ViewPrefab: {fileID: 5790375568444743159, guid: 4ac4ea01d7c2f6f4cb39e0f5d57c473c,
+    type: 3}
+  BattlePrefab: {fileID: 3108903372443000698, guid: e1d74deced4ec334b83497544d675465,
+    type: 3}
+  MainView: {fileID: 1151523158}
+  AgentPrefab: {fileID: 5019998452686049309, guid: a0c45e65102f026438bf2b0973290059,
+    type: 3}
+  EnemyPrefab: {fileID: 1308823105921759548, guid: 1d992186492930d4fb0221fb25d6fe00,
+    type: 3}
+  ParentForBattles: {fileID: 1753705365}
+  ParentForViews: {fileID: 1151523159}

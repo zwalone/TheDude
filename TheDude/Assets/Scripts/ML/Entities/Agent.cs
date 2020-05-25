@@ -22,7 +22,7 @@ public class Agent : Entity
 
     public override int MakeChoice()
     {
-        return 0;
+        return base.MakeChoice();
         //_network.PushInputValues(GetInputs());
 
         //List<double> choices = _network.GetOutput();

@@ -83,12 +83,12 @@ public class MLBattle : MonoBehaviour
     {
         if (agent.Stats.IsAlive())
         {
-            view.log.AddToLog("Agent Wygral");
+            view.log.Won();
             view.BattleWon();
         }
         else
         {
-            view.log.AddToLog("Agent Przegral");
+            view.log.Lost();
             view.BattleLost();
         } 
     }
