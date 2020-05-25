@@ -31,8 +31,8 @@ public class BattleHUD : MonoBehaviour
 
     public void UpdateHUD()
     {
-        plHp.value = plStats.Hp;
-        enHp.value = enStats.Hp;
+        //plHp.value = plStats.Hp;
+        //enHp.value = enStats.Hp;
         //pAC.text = string.Format("AC: {0}/{1}",plStats.ActionPoints,plStats.Dex.Val);
     }
 }

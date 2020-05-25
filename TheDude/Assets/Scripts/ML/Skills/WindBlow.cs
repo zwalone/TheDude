@@ -12,7 +12,7 @@ public class WindBlow : Skill
 
         //Action
         opponent.Effects.ClearAll();
-        user.Stats.Hp = HealHp;
+        user.Stats.SetHp(HealHp);
 
         //Log
         return $"{user.Stats.CharName}\n WindBlow: HP+ {HealHp}";

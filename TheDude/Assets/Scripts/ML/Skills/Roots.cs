@@ -14,7 +14,7 @@ public class Roots : Skill
         base.Activate(user, opponent);
 
         //Action
-        user.Stats.Hp = HealHp;
+        user.Stats.SetHp(HealHp);
         user.Effects.SetModifire("Def", user, DefBuff, Duration);
 
         //Log

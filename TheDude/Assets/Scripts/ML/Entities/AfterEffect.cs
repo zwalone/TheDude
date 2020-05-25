@@ -74,13 +74,11 @@ public class AfterEffect
         }
     
     }
-
     public void ResetAll()
     {
         _eachTime.Clear();
         _oneTime.Clear();
     }
-
 
     public int GetNumberOfEffect() => _oneTime.Count + _eachTime.Count;
 }

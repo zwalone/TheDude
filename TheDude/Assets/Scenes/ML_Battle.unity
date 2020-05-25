@@ -988,7 +988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37c83b9aa270c146a14c389013db1fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumOfBattles: 3
+  NumOfBattles: 1
   BattleSpeed: 50
   MutationRate: 0
   Crossover: 0
