@@ -16,6 +16,7 @@ public class MLManager : MonoBehaviour
     public double Crossover;
     public int Generation;
     public int HighestScore;
+    public int LimitOfBatttleTurn;
 
     public List<MLBattle> Battles;
     public MLManagerView ManagerView;
@@ -30,14 +31,20 @@ public class MLManager : MonoBehaviour
         ManagerView.CrossOverText.text = $"Crossover : {Crossover * 100.0}%";
         for (int i = 0; i < NumOfBattles; i++)
         {
-            Battles.Add(Factory.CreateBattle(BattleSpeed));
+            Battles.Add(Factory.CreateBattle(BattleSpeed, LimitOfBatttleTurn));
         }
         
     }
 
     public void Update()
     {
-        //if (BattleFinished()) Train(); 
+        if (BattleFinished()) 
+        {
+            Train();
+            Generation++;
+            ManagerView.ChangeGeneration(Generation);
+        }
+        
     }
 
     void Train()

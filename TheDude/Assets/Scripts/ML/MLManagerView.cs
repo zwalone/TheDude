@@ -12,4 +12,9 @@ public class MLManagerView : MonoBehaviour
 
     //Do some stuff update etc
 
+    public void ChangeGeneration(int gen)
+    {
+        GenerationText.text = $"GEN: {gen}";
+    }
+
 }

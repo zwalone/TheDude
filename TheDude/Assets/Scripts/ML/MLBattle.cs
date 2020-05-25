@@ -11,6 +11,7 @@ public class MLBattle : MonoBehaviour
     public int turn;
     public bool battleFinished;
     public int BattleSpeed;
+    public int limitOfTurn;
 
     int _slowBattle;
     private void Start()
@@ -19,6 +20,12 @@ public class MLBattle : MonoBehaviour
     }
     private void Update()
     {
+        if (turn >= limitOfTurn)
+        {
+            battleFinished = true;
+            view.log.NoWinner();
+            view.BattleLost();
+        }
         if (!view.LogOpen() && !battleFinished)
         {
             if (_slowBattle == 0)

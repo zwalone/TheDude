@@ -13,32 +13,37 @@ public class LogView : MonoBehaviour
 
     private int _head = 0;
 
-    
+
     public void AddToLog(string content)
     {
         _log += content + "\n";
     }
 
-    public void AddStats(string stats) 
+    public void AddStats(string stats)
     {
         _stats = stats;
     }
 
-    public void NewTurn(int turn) 
+    public void NewTurn(int turn)
     {
         TurnLogs.Add(_log);
         _log = $"Turn {turn}\n{_stats}\n";
-    
+
     }
     public void Won()
     {
         TurnLogs.Add(_log);
-        TurnLogs.Add($"Agent Wygrał");
+        TurnLogs.Add($"Agent Won");
     }
     public void Lost()
     {
         TurnLogs.Add(_log);
-        TurnLogs.Add($"Agent Przegrał");
+        TurnLogs.Add($"Agent Lost");
+    }
+    public void NoWinner()
+    {
+        TurnLogs.Add(_log);
+        TurnLogs.Add($"Time Over !\nAgent Lost");
     }
     public void PreviousLog()
     {

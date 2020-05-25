@@ -15,7 +15,7 @@ public class MLBattleFactory : MonoBehaviour
     public Transform ParentForBattles;
     public Transform ParentForViews;
 
-    public MLBattle CreateBattle(int battleSpeed)
+    public MLBattle CreateBattle(int battleSpeed, int limitOfTurn)
     {
         var battle = Instantiate(BattlePrefab);
         var view = Instantiate(ViewPrefab);
@@ -33,6 +33,7 @@ public class MLBattleFactory : MonoBehaviour
         currentBattle.enemy.transform.SetParent(currentBattle.transform);
 
         currentBattle.BattleSpeed = battleSpeed;
+        currentBattle.limitOfTurn = limitOfTurn;
 
         return currentBattle;
     }
