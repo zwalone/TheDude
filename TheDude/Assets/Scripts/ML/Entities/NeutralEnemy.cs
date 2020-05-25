@@ -10,8 +10,9 @@ public class NeutralEnemy : Enemy
     public override int MakeChoice()
     {
         int choice = 0;
-        if ( lastSkill != 1) choice = 1;//Decision();
-        lastSkill = 1;
+        if ( lastSkill == -1) choice = 1;
+        if (lastSkill == 0) choice = 2; //Decision();
+        lastSkill++;
         return choice;
     }
 

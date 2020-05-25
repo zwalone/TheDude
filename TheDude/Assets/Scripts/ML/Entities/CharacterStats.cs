@@ -10,7 +10,6 @@ public class CharacterStats : MonoBehaviour
     public Type LastAttackType;
     public bool MissLog;
 
-    [Range(0, 100)]
     public int MaxHP;
     [Range(0, 100)]
     public int BaseAtk;
@@ -31,15 +30,22 @@ public class CharacterStats : MonoBehaviour
     public void SetDex(int modifire) => Dex = Value0To100(Dex + modifire);
     public void SetDef(int modifire) => Def = Value0To100(Def + modifire);
     public void SetAtk(int modifire) => Atk = Value0To100(Atk + modifire);
-    public void SetHp(int modifire) => Hp = Value0To100(Hp + modifire);
+    public void SetHp(int modifire) => Hp = Value0ToMaxHp(Hp + modifire);
 
     int Value0To100(int value)
     {
         if (value < 0) return 0;
         else if (value > 100) return 100;
         else return value;
-
     }
+
+    int Value0ToMaxHp(int value)
+    {
+        if (value < 0) return 0;
+        else if (value > MaxHP) return MaxHP;
+        else return value;
+    }
+
     public void ResetStats()
     {
         Atk = BaseAtk;
@@ -50,7 +56,6 @@ public class CharacterStats : MonoBehaviour
     public void TakeDamage(double dmg)
     {
         if (Dodge()) TakeFlatDamage(dmg - Def);
-
     }
     private bool Dodge()
     {
@@ -61,7 +66,6 @@ public class CharacterStats : MonoBehaviour
             MissLog = true;
             return false;
         }
-        
     }
 
     public void TakeFlatDamage(double dmg)

@@ -12,6 +12,8 @@ public class Agent : Entity
     public double HpScale;
     public double ModifireScale;
 
+    double temp = 0;
+
     public double GetScore()=> _score * ModifireScale + (Opponent.Stats.Hp / Opponent.Stats.MaxHP) * HpScale;
     public List<double> GetWeights() => _network.GetWeights();
     public void PushWeights(List<double> weights) => _network.PushWeights(weights);
@@ -22,6 +24,7 @@ public class Agent : Entity
 
     public override int MakeChoice()
     {
+        if (temp == 0) { temp++; return 1; }
         return 0;
         //return base.MakeChoice();
         //_network.PushInputValues(GetInputs());

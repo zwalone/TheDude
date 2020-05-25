@@ -14,9 +14,9 @@ public static class Types
 
     static double[][] PreviousAttackBonus = new double[][] {
         new double[] { 1.3, 1.0, 1.0, 1.0, 1.0 },
-        new double[] { 1.0, 1.3, 0.9, 0.9, 1.0 },
-        new double[] { 1.0, 2.0, 1.3, 2.0, 1.0 },
-        new double[] { 1.0, 0.9, 0.9, 1.3, 1.3 },
+        new double[] { 1.0, 1.3, 2.0, 0.9, 1.0 },
+        new double[] { 1.0, 0.9, 1.3, 0.9, 1.0 },
+        new double[] { 1.0, 0.9, 2.0, 1.3, 1.3 },
         new double[] { 1.0, 1.0, 1.0, 1.3, 1.3 }};
     public static double GetAttackTypeModifire(Type first, Type second)
     {

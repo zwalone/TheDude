@@ -45,4 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cooldown: 5
   TypeOfSkill: 1
-  PowerScale: 0
+  PowerScale: 1

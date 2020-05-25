@@ -73,7 +73,9 @@ public class AfterEffect
         {
             item[3] = 0;
         }
-    
+        OneTimeAction();
+
+
     }
     public void ResetAll()
     {
