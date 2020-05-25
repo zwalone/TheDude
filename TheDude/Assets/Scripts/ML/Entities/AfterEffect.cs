@@ -57,12 +57,13 @@ public class AfterEffect
     public void SetModifire(string statName, Entity entity, int value, int time)
     {
         ModifyStats(statName, entity, value);
-        _oneTime.Add(new object[] { statName, entity, value ,time});
+        _oneTime.Add(new object[] { statName, entity, value ,time-1});
     }
 
     public void SetEachTurnAction(string statName, Entity entity, int value, int time)
     {
-        _eachTime.Add(new object[] { statName, entity, value, time });
+        ModifyStats(statName, entity, value);
+        _eachTime.Add(new object[] { statName, entity, value, time-1 });
     }
 
     public void ClearAll() 

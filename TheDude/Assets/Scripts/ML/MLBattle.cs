@@ -61,7 +61,6 @@ public class MLBattle : MonoBehaviour
     public void Turn(Entity entity)
     {
         entity.Effects.ActivateFunctions();
-        
         int chosenAction = entity.MakeAction(view.log);
         entity.UpdateCooldown();
         view.ActivateDiode(chosenAction);
@@ -94,7 +93,7 @@ public class MLBattle : MonoBehaviour
     }
     public bool CompareDex(Entity first, Entity second)
     {
-        if (first.Stats.Dex >= second.Stats.Dex) return false;
-        else return true;
+        if (first.Stats.Dex >= second.Stats.Dex) return true;
+        else return false;
     }
 }

@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    public Entity Opponent { get; set; }
+    public Entity Opponent;
     public CharacterStats Stats;
     public List<Skill> Skills;
     public AfterEffect Effects;
-    public Type LastAttackType;
 
     public Entity()
     {

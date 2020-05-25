@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharName: Agent
-  TypeOfEntity: 1
+  TypeOfEntity: 0
   MissLog: 0
   MaxHP: 100
   BaseAtk: 10

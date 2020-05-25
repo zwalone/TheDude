@@ -7,6 +7,7 @@ public class CharacterStats : MonoBehaviour
 {
     public string CharName;
     public Type TypeOfEntity;
+    public Type LastAttackType;
     public bool MissLog;
 
     [Range(0, 100)]

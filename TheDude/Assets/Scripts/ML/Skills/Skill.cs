@@ -14,7 +14,7 @@ public class Skill : MonoBehaviour
     public virtual string Activate(Entity user, Entity opponent) 
     {
         _cooldownCounter = Cooldown + 1;// Wait turn = n-1 => We add 1 to make it equl
-        user.LastAttackType = TypeOfSkill;
+        user.Stats.LastAttackType = TypeOfSkill;
         return "NULL";
     }
 
@@ -27,7 +27,7 @@ public class Skill : MonoBehaviour
     {
         double SameTypeSkill = Types.SameType(user.Stats.TypeOfEntity, TypeOfSkill);
         double OpponentWeakness = Types.GetAttackTypeModifire(TypeOfSkill, opponent.Stats.TypeOfEntity);
-        double ComboBonus = Types.GetPreviousAttackBonus(TypeOfSkill, user.LastAttackType);
+        double ComboBonus = Types.GetPreviousAttackBonus(TypeOfSkill, user.Stats.LastAttackType);
 
         _modifire = SameTypeSkill * OpponentWeakness * ComboBonus;
         return _modifire;
