@@ -17,7 +17,7 @@ public class Synapse
     public Synapse(Neuron fromneuron, Neuron toneuron)
     {
         FromNeuron = fromneuron; ToNeuron = toneuron;
-        Weight = tmp.NextDouble() -0.5;
+        Weight = tmp.NextDouble();
         //Debug.Log($"Weight {Weight}");
     }
 

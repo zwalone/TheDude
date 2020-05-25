@@ -65,12 +65,8 @@ public class Network
                 {
                     if (mutationRate < rand.NextDouble())
                     {
-                        synapse.Weight = rand.NextDouble() - 0.5;
+                        synapse.Weight = rand.NextDouble();
                     }
-                    //double percent = (double)UnityEngine.Random.Range(-LearningRate, LearningRate);
-                    //double delta = synapse.Weight * (percent / 100);
-                    //Debug.Log($"Synapse Weight : {synapse.Weight} Delta : {delta}");
-                    //synapse.Weight += delta;
                 }
             }
         }
@@ -97,16 +93,29 @@ public class Network
     public void PushWeightsFromParents(List<double> dad , List<double> mom, double crossoverPercent = 0.05 , double mutationRate = 0.01)
     {
         double tempVlaue = (double)dad.Count * crossoverPercent;
-        int cross = (int)Math.Round(tempVlaue,0);
+        int cross = 2 * (int)Math.Round(tempVlaue,0);
 
         Debug.Log($"Percent : {crossoverPercent} | Count Synapse :{dad.Count}  | How much to change {cross}");
+
+        //Create array with index
+        int[] array = new int[dad.Count];
+        for (int j = 0; j < dad.Count; j++)
+            array[j] = j;
+
+        //Shuffle
+        for (int j = 0; j < array.Length; j++)
+        {
+            int tmp = array[j];
+            int r = UnityEngine.Random.Range(j, array.Length);
+            array[j] = array[r];
+            array[r] = tmp;
+        }
 
         List<double> son = dad;
         for (int i = 0; i < cross; i++)
         {
-            int temp = rand.Next(0, dad.Count);
-            son[temp] = mom[temp];
-            son[temp + 1] = mom[temp + 1];
+            son[array[i]] = mom[array[i]];
+            //son[array[i+1]] = mom[array[i+1]];
         }
 
         PushWeights(son);
