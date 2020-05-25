@@ -13,7 +13,7 @@ public class Skill : MonoBehaviour
 
     public virtual string Activate(Entity user, Entity opponent) 
     {
-        _cooldownCounter = Cooldown;
+        _cooldownCounter = Cooldown + 1;// Wait turn = n-1 => We add 1 to make it equl
         user.LastAttackType = TypeOfSkill;
         return "NULL";
     }
@@ -42,6 +42,11 @@ public class Skill : MonoBehaviour
         if (_cooldownCounter > 0) _cooldownCounter--;
     }
 
-
+    public void ResetParameters()
+    {
+        _cooldownCounter = 0;
+        _modifire = 1;
+        _damage = 0;
+    }
   
 } 

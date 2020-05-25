@@ -988,7 +988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NumOfBattles: 1
-  BattleSpeed: 80
+  BattleSpeed: 50
   MutationRate: 0
   Crossover: 0
   Generation: 0
@@ -1003,7 +1003,7 @@ MonoBehaviour:
   MainView: {fileID: 1151523158}
   AgentPrefab: {fileID: 5019998452686049309, guid: a0c45e65102f026438bf2b0973290059,
     type: 3}
-  EnemyPrefab: {fileID: 8627107141956430697, guid: a19592ec89e9f704a967fd7b72b5b828,
+  EnemyPrefab: {fileID: 1308823105921759548, guid: 1d992186492930d4fb0221fb25d6fe00,
     type: 3}
 --- !u!4 &1753705365
 Transform:

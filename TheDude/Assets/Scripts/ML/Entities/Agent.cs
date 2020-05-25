@@ -22,28 +22,22 @@ public class Agent : Entity
 
     public override int MakeChoice()
     {
-        _network.PushInputValues(GetInputs());
+        return 0;
+        //_network.PushInputValues(GetInputs());
 
-        List<double> choices = _network.GetOutput();
+        //List<double> choices = _network.GetOutput();
 
-        //for (int i = 0; i < choices.Count; i++)
+        //int num = 0; 
+        //for (int i = 0; i < 10; i++)
         //{
-        //    Debug.Log(choices[i]);
+        //    num = choices.IndexOf(choices.Max());
+        //    if (Skills[num].CanActivate()) break;
+        //    else choices[num] = 0;
         //}
 
-        int num = 0; 
-        for (int i = 0; i < 10; i++)
-        {
-            num = choices.IndexOf(choices.Max());
-            if (Skills[num].CanActivate()) break;
-            else choices[num] = 0;
-        }
+        //_score += Skills[num].CalculateModifire(this,Opponent);
 
-        _score += Skills[num].CalculateModifire(this,Opponent);
-
-        return num;
-
-        //return base.MakeChoice();
+        //return num;
 
     }
 

@@ -15,6 +15,16 @@ public class Entity : MonoBehaviour
         Effects = new AfterEffect();
     }
 
+    public void ResetBeforFight()
+    {
+        Stats.ResetStats();
+        Effects.ResetAll();
+        foreach (var skill in Skills)
+        {
+            skill.ResetParameters();
+        }
+
+    }
     public void UpdateCooldown()
     {
         foreach (var skill in Skills)

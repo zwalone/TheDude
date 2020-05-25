@@ -36,8 +36,8 @@ public class MLBattle : MonoBehaviour
         agent.Opponent = enemy;
         enemy.Opponent = agent;
         battleFinished = false;
-        agent.Stats.ResetStats();
-        enemy.Stats.ResetStats();
+        agent.ResetBeforFight();
+        enemy.ResetBeforFight();
         view.SetView(agent, enemy);
     }
     void NextTurn()
@@ -61,8 +61,9 @@ public class MLBattle : MonoBehaviour
     public void Turn(Entity entity)
     {
         entity.Effects.ActivateFunctions();
-        entity.UpdateCooldown();
+        
         int chosenAction = entity.MakeAction(view.log);
+        entity.UpdateCooldown();
         view.ActivateDiode(chosenAction);
     }
     bool EveryoneAlive() 

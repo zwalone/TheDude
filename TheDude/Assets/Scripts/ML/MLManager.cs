@@ -16,7 +16,6 @@ public class MLManager : MonoBehaviour
     public double Crossover;
     public int Generation;
     public int HighestScore;
-    //Inne parametry...
     public List<MLBattle> Battles;
     public List<MLBattleView> Views;
 
@@ -44,7 +43,7 @@ public class MLManager : MonoBehaviour
 
     public void Update()
     {
-        if (BattleFinished()) Train(); //Bitwy sie resetuja i zaczynają od początku kiedy wszystkie skąnczą (rzadko kiedy kończą )
+        //if (BattleFinished()) Train(); 
     }
 
     void CreateBattle()
@@ -65,7 +64,6 @@ public class MLManager : MonoBehaviour
 
     void Train()
     {
-        //Inne rzeczy które potrzebujesz tutaj dobre miejsce 
         UpdateWeights();
         foreach (var battle in Battles)
         {
@@ -84,7 +82,7 @@ public class MLManager : MonoBehaviour
         return scores;
     }
 
-    void UpdateWeights()//Tutaj implementujesz algorytmy kto po kim bierze wagi i jak 
+    void UpdateWeights()
     {
         var score = GetScore();
 
@@ -100,7 +98,6 @@ public class MLManager : MonoBehaviour
 
         foreach (var battle in Battles)
         {
-            //Jedna metoda do crossover i mutation
             battle.agent.PushWeightsFromParents(bestWeightsDad, bestWeightsMom, Crossover , MutationRate); 
         }
 

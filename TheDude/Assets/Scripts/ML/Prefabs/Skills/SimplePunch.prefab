@@ -43,6 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a21c8daa435414eb445e641376ef88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cooldown: 0
+  Cooldown: 1
   TypeOfSkill: 0
   PowerScale: 1

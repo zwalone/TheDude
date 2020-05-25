@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class AfterEffect 
 {
-    List<object[]> oneTime;
-    List<object[]> eachTime;
+    List<object[]> _oneTime;
+    List<object[]> _eachTime;
     public AfterEffect()
     {
-        eachTime = new List<object[]>();
-        oneTime = new List<object[]>();
+        _eachTime = new List<object[]>();
+        _oneTime = new List<object[]>();
     }
     public void ActivateFunctions()
     {
@@ -19,23 +19,23 @@ public class AfterEffect
 
     void EachTimeAction() 
     {
-        for (int i = eachTime.Count - 1; i >= 0; i--)
+        for (int i = _eachTime.Count - 1; i >= 0; i--)
         {
-            var effect = eachTime[i];
+            var effect = _eachTime[i];
             ModifyStats((string)effect[0], (Entity)effect[1], (int)effect[2]);
             effect[3] = (int)effect[3] - 1;
-            if ((int)effect[3] <= 0) eachTime.Remove(effect);
+            if ((int)effect[3] <= 0) _eachTime.Remove(effect);
         }
     }
     void OneTimeAction()
     {
-        for (int i = oneTime.Count-1; i >= 0; i--)
+        for (int i = _oneTime.Count-1; i >= 0; i--)
         {
-            var effect = oneTime[i];
+            var effect = _oneTime[i];
             if ((int)effect[3] == 0)
             {
                 ModifyStats((string)effect[0], (Entity)effect[1], -(int)effect[2]);
-                oneTime.Remove(effect);
+                _oneTime.Remove(effect);
             }
             else
             {
@@ -57,23 +57,30 @@ public class AfterEffect
     public void SetModifire(string statName, Entity entity, int value, int time)
     {
         ModifyStats(statName, entity, value);
-        oneTime.Add(new object[] { statName, entity, value ,time});
+        _oneTime.Add(new object[] { statName, entity, value ,time});
     }
 
     public void SetEachTurnAction(string statName, Entity entity, int value, int time)
     {
-        eachTime.Add(new object[] { statName, entity, value, time });
+        _eachTime.Add(new object[] { statName, entity, value, time });
     }
 
     public void ClearAll() 
     {
-        eachTime.Clear();
-        foreach (var item in oneTime)
+        _eachTime.Clear();
+        foreach (var item in _oneTime)
         {
             item[3] = 0;
         }
     
     }
 
-    public int GetNumberOfEffect() => oneTime.Count + eachTime.Count;
+    public void ResetAll()
+    {
+        _eachTime.Clear();
+        _oneTime.Clear();
+    }
+
+
+    public int GetNumberOfEffect() => _oneTime.Count + _eachTime.Count;
 }
