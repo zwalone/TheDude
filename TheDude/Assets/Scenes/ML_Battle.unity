@@ -813,8 +813,8 @@ MonoBehaviour:
   m_StartAxis: 0
   m_CellSize: {x: 150, y: 200}
   m_Spacing: {x: 10, y: 10}
-  m_Constraint: 0
-  m_ConstraintCount: 2
+  m_Constraint: 1
+  m_ConstraintCount: 5
 --- !u!114 &1151523161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1182,7 +1182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d37c83b9aa270c146a14c389013db1fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NumOfBattles: 5
+  NumOfBattles: 10
   BattleSpeed: 5
   MutationRate: 0
   Crossover: 0
@@ -1223,7 +1223,7 @@ MonoBehaviour:
   MainView: {fileID: 1151523158}
   AgentPrefab: {fileID: 5019998452686049309, guid: a0c45e65102f026438bf2b0973290059,
     type: 3}
-  EnemyPrefab: {fileID: 8627107141956430697, guid: a19592ec89e9f704a967fd7b72b5b828,
+  EnemyPrefab: {fileID: 1308823105921759548, guid: 1d992186492930d4fb0221fb25d6fe00,
     type: 3}
   ParentForBattles: {fileID: 1753705365}
   ParentForViews: {fileID: 1151523159}

@@ -10,7 +10,7 @@ public class CharacterStats : MonoBehaviour
     public Type LastAttackType;
     public bool MissLog;
 
-    public int MaxHP;
+    public int MaxHp;
     [Range(0, 100)]
     public int BaseAtk;
     [Range(0, 100)]
@@ -42,7 +42,7 @@ public class CharacterStats : MonoBehaviour
     int Value0ToMaxHp(int value)
     {
         if (value < 0) return 0;
-        else if (value > MaxHP) return MaxHP;
+        else if (value > MaxHp) return MaxHp;
         else return value;
     }
 
@@ -51,7 +51,7 @@ public class CharacterStats : MonoBehaviour
         Atk = BaseAtk;
         Def = BaseDef;
         Dex = BaseDex;
-        Hp = MaxHP;
+        Hp = MaxHp;
     }
     public void TakeDamage(double dmg)
     {
@@ -81,5 +81,10 @@ public class CharacterStats : MonoBehaviour
         else return true;
     }
     public double CalculateDamage() => Atk;
+    public double ProcentOfHp()
+    {
+        double hp = Hp;
+        return (hp / MaxHp)*100.0;
+    } 
 
 }

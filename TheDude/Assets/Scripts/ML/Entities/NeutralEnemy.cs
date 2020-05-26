@@ -9,20 +9,19 @@ public class NeutralEnemy : Enemy
 
     public override int MakeChoice()
     {
-        int choice = 0;
-        if ( lastSkill == -1) choice = 1;
-        if (lastSkill == 0) choice = 2; //Decision();
-        lastSkill++;
+        int choice = Decision();
+        lastSkill = choice;
         return choice;
     }
 
-    //int Decision()
-    //{
-    //    if (Stats.Hp < Stats.MaxHP*0.4 && Effects.GetNumberOfEffect() == 0) return 1;
-    //    if (Effects.GetNumberOfEffect() == 0) return 1;
-    //    if (lastSkill == 1) return 2;
-    //    else return 0;
+    int Decision()
+    {
+        if (Skills[3].CanActivate() && Stats.ProcentOfHp() < 90) return 3;
+        if (Skills[2].CanActivate() && lastSkill == 1) return 2;
+        if (Skills[0].CanActivate() && lastSkill == 2) return 0;
+        if (Skills[0].CanActivate()) return 0;
+        return 1;
 
-    //}
+    }
 
 }

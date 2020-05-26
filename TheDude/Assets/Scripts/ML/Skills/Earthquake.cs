@@ -15,7 +15,7 @@ public class Earthquake : Skill
 
         //Action
         opponent.Stats.TakeDamage(_damage);
-        user.Effects.SetModifire("Dex", opponent, DexDebuff, Duration);
+        user.Effects.SetModifire("Dex", opponent, -DexDebuff, Duration);
 
         //Log
         return $"{user.Stats.CharName}\n Earthquake({Duration}): {_damage} Dex- {DexDebuff}";

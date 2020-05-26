@@ -50,11 +50,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharName: FireEnemy
   TypeOfEntity: 1
+  LastAttackType: 0
   MissLog: 0
-  MaxHP: 100
-  BaseAtk: 15
-  BaseDef: 15
-  BaseDex: 15
+  MaxHp: 110
+  BaseAtk: 10
+  BaseDef: 10
+  BaseDex: 10
 --- !u!114 &894697709580825604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,13 +68,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 998c3661f63e0fb4ab898180423a9814, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Opponent: {fileID: 0}
   Stats: {fileID: 894697709580825601}
   Skills:
   - {fileID: 8006137768552243216}
   - {fileID: 7384429391309647515}
   - {fileID: 1694051320659630897}
   - {fileID: 704889732543100228}
-  LastAttackType: 0
 --- !u!1001 &490759961254704617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168,11 +169,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 894697709580825602}
     m_Modifications:
-    - target: {fileID: 3416585035064886321, guid: a692298757b06894bb2ac6a4fbc329dc,
-        type: 3}
-      propertyPath: m_Name
-      value: Guard
-      objectReference: {fileID: 0}
     - target: {fileID: 3416585035064886335, guid: a692298757b06894bb2ac6a4fbc329dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -227,6 +223,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3416585035064886321, guid: a692298757b06894bb2ac6a4fbc329dc,
+        type: 3}
+      propertyPath: m_Name
+      value: Guard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a692298757b06894bb2ac6a4fbc329dc, type: 3}
@@ -255,11 +256,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 894697709580825602}
     m_Modifications:
-    - target: {fileID: 8078586067837372900, guid: 675e95cb95c308d48b84715e3554d165,
-        type: 3}
-      propertyPath: m_Name
-      value: Ignite
-      objectReference: {fileID: 0}
     - target: {fileID: 2805913427362983123, guid: 675e95cb95c308d48b84715e3554d165,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -315,6 +311,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8078586067837372900, guid: 675e95cb95c308d48b84715e3554d165,
+        type: 3}
+      propertyPath: m_Name
+      value: Ignite
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 675e95cb95c308d48b84715e3554d165, type: 3}
 --- !u!4 &729922675326534653 stripped
@@ -342,11 +343,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 894697709580825602}
     m_Modifications:
-    - target: {fileID: 7090386056397024297, guid: c0498bd9d5619c746a1a4a76bdfcbcd1,
-        type: 3}
-      propertyPath: m_Name
-      value: BurnAll
-      objectReference: {fileID: 0}
     - target: {fileID: 7582906048212573469, guid: c0498bd9d5619c746a1a4a76bdfcbcd1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -401,6 +397,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090386056397024297, guid: c0498bd9d5619c746a1a4a76bdfcbcd1,
+        type: 3}
+      propertyPath: m_Name
+      value: BurnAll
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0498bd9d5619c746a1a4a76bdfcbcd1, type: 3}

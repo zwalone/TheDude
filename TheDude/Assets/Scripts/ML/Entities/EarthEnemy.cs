@@ -16,9 +16,9 @@ public class EarthEnemy : Enemy
 
     int Decision()
     {
-        if (Opponent.Effects.GetNumberOfEffect() > 1) return 3;
-        if (Effects.GetNumberOfEffect() ==0 && Stats.Hp<Stats.MaxHP*0.8) return 1;
-        if (lastSkill == 0) return 2;
+        if (Skills[3].CanActivate() && Opponent.Effects.GetNumberOfEffect() > 1) return 3;
+        if (Skills[1].CanActivate() && Stats.ProcentOfHp() < 80) return 1;
+        if (Skills[2].CanActivate() && lastSkill == 0) return 2;
         else return 0;
 
     }

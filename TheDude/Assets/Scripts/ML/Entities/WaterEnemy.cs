@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class WaterEnemy : Enemy
 {
-    //W1, W2, N1, E1
+    //W1, W2, A2, E2 --Cooldown 2,2,4,5
     int lastSkill = -1;
-
     public override int MakeChoice()
     {
         int choice = Decision();
@@ -16,12 +15,12 @@ public class WaterEnemy : Enemy
 
     int Decision()
     {
-        if (Effects.GetNumberOfEffect() == 0 && Skills[3].CanActivate()) return 3;
-        if (lastSkill == 3) return 1;
-        if (lastSkill == 1) return 0;
-        else return 2;
+        if (Skills[2].CanActivate() && Stats.ProcentOfHp() < 90) return 2;
+        if (Skills[3].CanActivate() && Stats.ProcentOfHp() < 90) return 3;
+        if (Skills[0].CanActivate() && lastSkill == 2) return 0;
+        if (Skills[0].CanActivate() && lastSkill == 1) return 0;
+        return 1;
 
     }
-
 
 }

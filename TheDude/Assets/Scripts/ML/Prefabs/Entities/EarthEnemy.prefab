@@ -50,9 +50,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharName: EarthEnemy
   TypeOfEntity: 4
+  LastAttackType: 0
   MissLog: 0
-  MaxHP: 100
-  BaseAtk: 10
+  MaxHp: 100
+  BaseAtk: 15
   BaseDef: 10
   BaseDex: 10
 --- !u!114 &8627107141956430697
@@ -67,13 +68,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf29aad4128aa7488b9ed77a18b371c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Opponent: {fileID: 0}
   Stats: {fileID: 2025571204390789770}
   Skills:
   - {fileID: 3714585496867162309}
   - {fileID: 6822525666871894378}
   - {fileID: 3829416058098559502}
   - {fileID: 547636120060516959}
-  LastAttackType: 0
 --- !u!1001 &250554137512014184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -342,11 +343,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8230813038353709066}
     m_Modifications:
-    - target: {fileID: 3139715165129336774, guid: e5df13a1e127ba74eb7482b967dc5e74,
-        type: 3}
-      propertyPath: m_Name
-      value: Roots
-      objectReference: {fileID: 0}
     - target: {fileID: 3139715165129336768, guid: e5df13a1e127ba74eb7482b967dc5e74,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -401,6 +397,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3139715165129336774, guid: e5df13a1e127ba74eb7482b967dc5e74,
+        type: 3}
+      propertyPath: m_Name
+      value: Roots
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5df13a1e127ba74eb7482b967dc5e74, type: 3}

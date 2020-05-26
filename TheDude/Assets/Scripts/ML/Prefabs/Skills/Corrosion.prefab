@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da8b402e7f128184c84ad57e44862906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cooldown: 3
+  Cooldown: 2
   TypeOfSkill: 3
   DefDebuff: 10
-  Duration: 2
+  Duration: 3

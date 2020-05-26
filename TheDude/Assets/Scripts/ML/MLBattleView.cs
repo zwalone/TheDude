@@ -29,8 +29,8 @@ public class MLBattleView : MonoBehaviour
         agName.text = agStats.CharName;
         enName.text = enStats.CharName;
 
-        agHp.maxValue = agStats.MaxHP;
-        enHp.maxValue = enStats.MaxHP;
+        agHp.maxValue = agStats.MaxHp;
+        enHp.maxValue = enStats.MaxHp;
 
         BattleStateTxt.text = "Fighting...";
         BattleStateImg.color = Color.blue;

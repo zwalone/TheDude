@@ -12,8 +12,6 @@ public class MLManagerView : MonoBehaviour
     public Text WinsText;
     public Text WinningRateText;
 
-    //Do some stuff update etc
-
     public void ChangeGeneration(int gen) => GenerationText.text = $"GEN: {gen}";
     public void ChangeWins(int win,int numOfFights) => WinsText.text = $"Wins: {win}/{numOfFights}";
     public void ChangeWinningRate(double rate) => WinningRateText.text = $"Winnin Rate: {rate}%";

@@ -12,8 +12,8 @@ public class BurnAll : Skill
         base.Activate(user, opponent);
 
         //Action
-        opponent.Stats.TakeDamage(_damage);
-        user.Stats.TakeDamage(_damage);
+        opponent.Stats.TakeFlatDamage(_damage);
+        user.Stats.TakeFlatDamage(_damage);
 
         //Log
         return $"{user.Stats.CharName}\n BurnAll: {_damage}";

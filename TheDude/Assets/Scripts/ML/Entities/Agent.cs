@@ -12,7 +12,7 @@ public class Agent : Entity
     public double HpScale;
     public double ModifireScale;
 
-    public double GetScore()=> _score * ModifireScale + (Opponent.Stats.Hp / Opponent.Stats.MaxHP) * HpScale;
+    public double GetScore()=> _score * ModifireScale + (Opponent.Stats.Hp / Opponent.Stats.MaxHp) * HpScale;
     public List<double> GetWeights() => _network.GetWeights();
     public void PushWeights(List<double> weights) => _network.PushWeights(weights);
 
@@ -43,9 +43,9 @@ public class Agent : Entity
     double[] GetInputs()
     {
         CharacterStats Ostats =  Opponent.Stats;
-        double[] inputs = new double[] { (double)Stats.Hp / (double)Stats.MaxHP * 100.0, (double)Stats.Atk, (double)Stats.Def,
+        double[] inputs = new double[] { (double)Stats.Hp / (double)Stats.MaxHp * 100.0, (double)Stats.Atk, (double)Stats.Def,
             (double)Stats.Dex,
-            (double)Ostats.Hp / (double)Ostats.MaxHP * 100, (double)Ostats.Atk, (double)Ostats.Def, (double)Ostats.Dex,
+            (double)Ostats.Hp / (double)Ostats.MaxHp * 100, (double)Ostats.Atk, (double)Ostats.Def, (double)Ostats.Dex,
             0,0,0,0,0,0,0,0,0,0};
 
         inputs[(int)Stats.TypeOfEntity+8] = 1;
