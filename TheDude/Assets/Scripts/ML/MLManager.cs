@@ -15,24 +15,26 @@ public class MLManager : MonoBehaviour
     public double MutationRate;
     public double Crossover;
     public int LimitOfBatttleTurn;
+    
 
     public List<MLBattle> Battles;
     public MLManagerView ManagerView;
     public MLBattleFactory Factory;
 
-    int _wins;
-    double _totalWins = 0;
+    List<int> _totalWins;
     int _generation = 0;
     int _winningRate = 0;
+    int _highestscore = 0;
 
     public void Start()
     {
+        _totalWins = new List<int>();
         if (PlayerPrefs.HasKey("mutationRate")) MutationRate = Convert.ToDouble(PlayerPrefs.GetString("mutationRate"));
         if (PlayerPrefs.HasKey("crossover")) Crossover = Convert.ToDouble(PlayerPrefs.GetString("crossover"));
 
         for (int i = 0; i < NumOfBattles; i++)
         {
-            Battles.Add(Factory.CreateBattle(BattleSpeed, LimitOfBatttleTurn));
+            Battles.Add(Factory.CreateBattle(BattleSpeed, LimitOfBatttleTurn,0));
         }
         UpdateViewBar();
     }
@@ -61,14 +63,17 @@ public class MLManager : MonoBehaviour
         List<double> scores = new List<double>();
         foreach (var battle in Battles)
         {
-            scores.Add(battle.agent.GetScore());
+            if(battle.battleWon)scores.Add(battle.agent.GetScore(battle.turn));
         }
+        if (scores.Count == 0) scores.Add(1.0);
         return scores;
     }
 
     void UpdateWeights()
     {
         var score = GetScore();
+
+        _highestscore = (int)score.Max();
 
         //Take Best Entity (Dad)
         int bestEntityDad = score.IndexOf(score.Max());
@@ -85,6 +90,7 @@ public class MLManager : MonoBehaviour
             battle.agent.PushWeightsFromParents(bestWeightsDad, bestWeightsMom, Crossover , MutationRate); 
         }
 
+        
     }
     bool BattleFinished()
     {
@@ -100,17 +106,24 @@ public class MLManager : MonoBehaviour
         ManagerView.ChangeCrossOver(Crossover);
         ManagerView.ChangeMutationRate(MutationRate);
         ManagerView.ChangeGeneration(_generation);
-        ManagerView.ChangeWins(_wins,NumOfBattles);
+        //ManagerView.ChangeWins(_wins,NumOfBattles);
         ManagerView.ChangeWinningRate(_winningRate);
+        ManagerView.ChangeHighestScore(_highestscore);
     }
     void CalculateWins()
     {
-        _wins = 0;
+         int wins = 0;
         foreach (var battle in Battles)
         {
-            if (battle.battleWon) _wins++;
+            if (battle.battleWon) wins++;
         }
-        _totalWins += _wins;
-        _winningRate = (int)(100.0 * (_totalWins / (_generation * NumOfBattles)));
+
+        if (_totalWins.Count == 10) _totalWins.RemoveAt(0);
+        _totalWins.Add(wins);
+
+        double sum = 0;
+        _totalWins.ForEach(x => sum += x) ;
+
+        _winningRate = (int)(sum / _totalWins.Count * 10.0);
     }
 }

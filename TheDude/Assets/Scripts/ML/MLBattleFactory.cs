@@ -10,12 +10,12 @@ public class MLBattleFactory : MonoBehaviour
     public GameObject MainView;
 
     public Agent AgentPrefab;
-    public Entity EnemyPrefab;
+    public List<Entity> EnemiesPrefabs;
 
     public Transform ParentForBattles;
     public Transform ParentForViews;
 
-    public MLBattle CreateBattle(int battleSpeed, int limitOfTurn)
+    public MLBattle CreateBattle(int battleSpeed, int limitOfTurn, int numOfEnemy)
     {
         var battle = Instantiate(BattlePrefab);
         var view = Instantiate(ViewPrefab);
@@ -28,7 +28,7 @@ public class MLBattleFactory : MonoBehaviour
         currentBattle.view = currentView;
 
         currentBattle.agent = Instantiate(AgentPrefab);
-        currentBattle.enemy = Instantiate(EnemyPrefab);
+        currentBattle.enemy = Instantiate(EnemiesPrefabs[numOfEnemy]);
         currentBattle.agent.transform.SetParent(currentBattle.transform);
         currentBattle.enemy.transform.SetParent(currentBattle.transform);
 
