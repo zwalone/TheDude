@@ -12,6 +12,7 @@ public class MLBattle : MonoBehaviour
     public bool battleFinished;
     public int BattleSpeed;
     public int limitOfTurn;
+    public bool battleWon;
 
     int _slowBattle;
     private void Start()
@@ -46,6 +47,7 @@ public class MLBattle : MonoBehaviour
         agent.ResetBeforFight();
         enemy.ResetBeforFight();
         view.SetView(agent, enemy);
+        battleWon = false;
     }
     void NextTurn()
     {
@@ -91,6 +93,7 @@ public class MLBattle : MonoBehaviour
         {
             view.log.Won();
             view.BattleWon();
+            battleWon = true;
         }
         else
         {

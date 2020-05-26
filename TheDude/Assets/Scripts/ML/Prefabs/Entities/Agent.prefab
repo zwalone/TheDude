@@ -56,9 +56,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CharName: Agent
   TypeOfEntity: 0
+  LastAttackType: 0
   MissLog: 0
   MaxHP: 100
-  BaseAtk: 10
+  BaseAtk: 25
   BaseDef: 10
   BaseDex: 10
 --- !u!114 &5019998452686049309
@@ -73,6 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9283238a6f6f18438ae164be4792860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Opponent: {fileID: 0}
   Stats: {fileID: 5019998452686049297}
   Skills:
   - {fileID: 8212804614868167268}
@@ -85,7 +87,6 @@ MonoBehaviour:
   - {fileID: 2134330786287359158}
   - {fileID: 6015415322783052121}
   - {fileID: 5475327688719159443}
-  LastAttackType: 0
   HpScale: 1
   ModifireScale: 1
 --- !u!1001 &477332146206448983
