@@ -29,6 +29,19 @@ static class Functions
             dataToSave.Add(item.ToString());
         }
 
-        File.WriteAllLines(Application.dataPath, dataToSave);
+        File.WriteAllLines(Application.dataPath + "\\network.txt", dataToSave);
+    }
+
+    public static List<double> LoadNetwork()
+    {
+        string[] data = File.ReadAllLines(Application.dataPath + "\\network.txt");
+
+        List<double> network = new List<double>();
+        for (int i = 0; i < data.Length; i++)
+        {
+            network.Add(Convert.ToDouble(data[i]));
+        }
+
+        return network;
     }
 }
