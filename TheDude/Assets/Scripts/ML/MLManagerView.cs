@@ -17,6 +17,7 @@ public class MLManagerView : MonoBehaviour
     public void ChangeWinningRate(double rate) => WinningRateText.text = $"Winnin Rate: {rate}%";
     public void ChangeMutationRate(double mutationRate) => MutationRateText.text = $"Mutation Rate: {mutationRate * 100.0}%";
     public void ChangeCrossOver(double crossover) => CrossOverText.text = $"Crossover : {crossover * 100.0}%";
+    public void ChangeHighestScore(int score) => HighestScoreText.text = $"Highest Score: {score}";
 
 
 }

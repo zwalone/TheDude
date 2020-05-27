@@ -12,7 +12,10 @@ public class Agent : Entity
     public double HpScale;
     public double ModifireScale;
 
-    public double GetScore()=> _score * ModifireScale + (Opponent.Stats.Hp / Opponent.Stats.MaxHp) * HpScale;
+    public double GetScore(int turns) 
+    {
+        return _score* ModifireScale +(Opponent.Stats.Hp / Opponent.Stats.MaxHp) * HpScale + (100.0-turns)/100;
+    } 
     public List<double> GetWeights() => _network.GetWeights();
     public void PushWeights(List<double> weights) => _network.PushWeights(weights);
 
