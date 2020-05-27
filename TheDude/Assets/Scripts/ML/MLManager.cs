@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using UnityEditor;
-using UnityEditor.Build.Player;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using System;
 
 public class MLManager : MonoBehaviour
@@ -63,6 +60,12 @@ public class MLManager : MonoBehaviour
         {
             scores.Add(battle.agent.GetScore());
         }
+        
+        //foreach(var battle in Battles)
+        //{
+        //    battle.agent._score = 0;
+        //}
+
         return scores;
     }
 
@@ -78,8 +81,9 @@ public class MLManager : MonoBehaviour
         //Take secound best Entity (Mom)
         int bestEntityMom = score.IndexOf(score.Max());
         var bestWeightsMom = Battles[bestEntityMom].agent.GetWeights();
-        
 
+        Debug.Log($"index  Dad: {bestEntityDad} , index Mom{bestEntityMom}");
+        Debug.Log($"{bestWeightsDad[19]} , {bestWeightsDad[20]} , {bestWeightsDad[100]} , {bestWeightsDad[120]} , {bestWeightsDad[150]}");
         foreach (var battle in Battles)
         {
             battle.agent.PushWeightsFromParents(bestWeightsDad, bestWeightsMom, Crossover , MutationRate); 

@@ -17,7 +17,6 @@ public class Network
         for (int i = 0; i < hiddenlayerscount; i++)
             AddNextLayer(new Layer(hiddenneuronscount));
         AddNextLayer(new Layer(outputneuronscount));
-        //Debug.Log("Stworzona sieć");
     }
 
     private void AddFirstLayer(int inputneuronscount)
@@ -63,8 +62,10 @@ public class Network
             {
                 foreach (Synapse synapse in neuron.Inputs)
                 {
-                    if (mutationRate < rand.NextDouble())
+                    //double r = rand.NextDouble();
+                    if (mutationRate > rand.NextDouble())
                     {
+                        //Debug.Log("Mutajca!");
                         synapse.Weight = rand.NextDouble();
                     }
                 }
@@ -94,12 +95,16 @@ public class Network
     {
         double tempVlaue = (double)dad.Count * crossoverPercent;
         int cross = 2 * (int)Math.Round(tempVlaue,0);
+        
+        Debug.Log($"Cross:{crossoverPercent} | Mutation:{mutationRate}  | {cross}");
 
-        Debug.Log($"Percent : {crossoverPercent} | Count Synapse :{dad.Count}  | How much to change {cross}");
+        //if (cross > dad.Count - 18)
+        //    cross = dad.Count - 18;
 
         //Create array with index
         int[] array = new int[dad.Count];
-        for (int j = 0; j < dad.Count; j++)
+        //int[] array = new int[cross];
+        for (int j = 0; j < dad.Count; j++) //cross <- dad.Count
             array[j] = j;
 
         //Shuffle
@@ -120,7 +125,6 @@ public class Network
 
         PushWeights(son);
         ChangeWeights(mutationRate);
-
     }
 
     //return list weights ,,winnig'' object
