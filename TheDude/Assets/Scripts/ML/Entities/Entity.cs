@@ -14,7 +14,7 @@ public class Entity : MonoBehaviour
         Effects = new AfterEffect();
     }
 
-    public void ResetBeforFight()
+    public virtual void ResetBeforFight()
     {
         Stats.ResetStats();
         Effects.ResetAll();

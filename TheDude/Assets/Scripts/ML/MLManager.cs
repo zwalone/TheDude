@@ -22,6 +22,7 @@ public class MLManager : MonoBehaviour
     int _generation = 0;
     int _winningRate = 0;
     int _highestscore = 0;
+    double _lostBattleScale = 0.7;
 
     public void Start()
     {
@@ -60,7 +61,8 @@ public class MLManager : MonoBehaviour
         List<double> scores = new List<double>();
         foreach (var battle in Battles)
         {
-            if(battle.battleWon)scores.Add(battle.agent.GetScore(battle.turn));
+            if (battle.battleWon) scores.Add(battle.agent.GetScore(battle.turn));
+            else scores.Add(_lostBattleScale * battle.agent.GetScore(battle.turn));
         }
         if (scores.Count == 0) scores.Add(1.0);
         return scores;
@@ -81,8 +83,8 @@ public class MLManager : MonoBehaviour
         int bestEntityMom = score.IndexOf(score.Max());
         var bestWeightsMom = Battles[bestEntityMom].agent.GetWeights();
 
-        Debug.Log($"index  Dad: {bestEntityDad} , index Mom{bestEntityMom}");
-        Debug.Log($"{bestWeightsDad[19]} , {bestWeightsDad[20]} , {bestWeightsDad[100]} , {bestWeightsDad[120]} , {bestWeightsDad[150]}");
+        //Debug.Log($"index  Dad: {bestEntityDad} , index Mom{bestEntityMom}");
+        //Debug.Log($"{bestWeightsDad[19]} , {bestWeightsDad[20]} , {bestWeightsDad[100]} , {bestWeightsDad[120]} , {bestWeightsDad[150]}");
         foreach (var battle in Battles)
         {
             battle.agent.PushWeightsFromParents(bestWeightsDad, bestWeightsMom, Crossover , MutationRate); 

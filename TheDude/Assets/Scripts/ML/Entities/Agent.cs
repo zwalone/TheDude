@@ -62,4 +62,10 @@ public class Agent : Entity
 
         return inputs;
     }
+
+    public override void ResetBeforFight()
+    {
+        base.ResetBeforFight();
+        _score = 0;
+    }
 }
