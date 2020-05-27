@@ -12,6 +12,7 @@ public class MLManager : MonoBehaviour
     public double MutationRate;
     public double Crossover;
     public int LimitOfBatttleTurn;
+    public int FightsWithEachEnemy;
     
 
     public List<MLBattle> Battles;
@@ -23,6 +24,8 @@ public class MLManager : MonoBehaviour
     int _winningRate = 0;
     int _highestscore = 0;
     double _lostBattleScale = 0.7;
+    int _enemyIndex = 0;
+    int _enemyCounter = 0;
 
     public void Start()
     {
@@ -32,7 +35,7 @@ public class MLManager : MonoBehaviour
 
         for (int i = 0; i < NumOfBattles; i++)
         {
-            Battles.Add(Factory.CreateBattle(BattleSpeed, LimitOfBatttleTurn,0));
+            Battles.Add(Factory.CreateBattle(BattleSpeed, LimitOfBatttleTurn, _enemyIndex));
         }
         UpdateViewBar();
     }
@@ -41,7 +44,26 @@ public class MLManager : MonoBehaviour
         if (BattleFinished()) 
         {
             Train();
+            ChooseEnemy();
         }
+    }
+
+    void ChooseEnemy()
+    {
+        _enemyCounter++;
+
+        if (_enemyCounter >= FightsWithEachEnemy)
+        {
+            _enemyCounter = 0;
+            _enemyIndex++;
+            if (_enemyIndex == Factory.EnemiesPrefabs.Count) _enemyIndex = 0;
+
+            foreach (MLBattle battle in Battles)
+            {
+                Factory.ChangeEnemy(battle, _enemyIndex);
+            }
+        }
+    
     }
 
     void Train()

@@ -788,8 +788,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.025009155}
-  m_SizeDelta: {x: 0, y: 0.049988}
+  m_AnchoredPosition: {x: 0, y: 0.049987793}
+  m_SizeDelta: {x: 0, y: 0.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1151523160
 MonoBehaviour:
@@ -1187,6 +1187,7 @@ MonoBehaviour:
   MutationRate: 0
   Crossover: 0
   LimitOfBatttleTurn: 100
+  FightsWithEachEnemy: 10
   Battles: []
   ManagerView: {fileID: 1660914451}
   Factory: {fileID: 1753705366}
@@ -1224,9 +1225,9 @@ MonoBehaviour:
   AgentPrefab: {fileID: 5019998452686049309, guid: a0c45e65102f026438bf2b0973290059,
     type: 3}
   EnemiesPrefabs:
-  - {fileID: 894697709580825604, guid: 239765497dcac9645921e8d74513f5d7, type: 3}
-  - {fileID: 3195580232308290130, guid: 6c657b7ed70124b4ea67b41d995cd995, type: 3}
-  - {fileID: 8627107141956430697, guid: a19592ec89e9f704a967fd7b72b5b828, type: 3}
-  - {fileID: 1308823105921759548, guid: 1d992186492930d4fb0221fb25d6fe00, type: 3}
+  - {fileID: 894697709580825605, guid: 239765497dcac9645921e8d74513f5d7, type: 3}
+  - {fileID: 5741755486700023781, guid: 6c657b7ed70124b4ea67b41d995cd995, type: 3}
+  - {fileID: 4943655168391579144, guid: a19592ec89e9f704a967fd7b72b5b828, type: 3}
+  - {fileID: 7093289319766922837, guid: 1d992186492930d4fb0221fb25d6fe00, type: 3}
   ParentForBattles: {fileID: 1753705365}
   ParentForViews: {fileID: 1151523159}

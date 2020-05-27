@@ -6,6 +6,7 @@ public class MLBattle : MonoBehaviour
 {
     public Agent agent;
     public Entity enemy;
+    public GameObject enemyGO;
 
     public MLBattleView view;
     public int turn;

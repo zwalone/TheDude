@@ -10,7 +10,7 @@ public class MLBattleFactory : MonoBehaviour
     public GameObject MainView;
 
     public Agent AgentPrefab;
-    public List<Entity> EnemiesPrefabs;
+    public List<GameObject> EnemiesPrefabs;
 
     public Transform ParentForBattles;
     public Transform ParentForViews;
@@ -28,7 +28,8 @@ public class MLBattleFactory : MonoBehaviour
         currentBattle.view = currentView;
 
         currentBattle.agent = Instantiate(AgentPrefab);
-        currentBattle.enemy = Instantiate(EnemiesPrefabs[numOfEnemy]);
+        currentBattle.enemyGO = Instantiate(EnemiesPrefabs[numOfEnemy]);
+        currentBattle.enemy = currentBattle.enemyGO.GetComponent<Entity>();
         currentBattle.agent.transform.SetParent(currentBattle.transform);
         currentBattle.enemy.transform.SetParent(currentBattle.transform);
 
@@ -36,5 +37,15 @@ public class MLBattleFactory : MonoBehaviour
         currentBattle.limitOfTurn = limitOfTurn;
 
         return currentBattle;
+    }
+
+    public void ChangeEnemy(MLBattle battle,int indexEnemy)
+    {
+        Destroy(battle.enemyGO);
+
+        battle.enemyGO = Instantiate(EnemiesPrefabs[indexEnemy]);
+        battle.enemy = battle.enemyGO.GetComponent<Entity>();
+        battle.enemyGO.transform.SetParent(battle.transform);
+
     }
 }
