@@ -20,6 +20,7 @@ public class MLManager : MonoBehaviour
     public MLBattleFactory Factory;
 
     List<int> _totalWins;
+    List<double> _bestWeights;
     int _generation = 0;
     int _winningRate = 0;
     int _highestscore = 0;
@@ -101,6 +102,7 @@ public class MLManager : MonoBehaviour
         score[bestEntityDad] = 0;
         var bestWeightsDad = Battles[bestEntityDad].agent.GetWeights();
 
+        _bestWeights = bestWeightsDad;
         //Take secound best Entity (Mom)
         int bestEntityMom = score.IndexOf(score.Max());
         var bestWeightsMom = Battles[bestEntityMom].agent.GetWeights();
@@ -147,5 +149,19 @@ public class MLManager : MonoBehaviour
         _totalWins.ForEach(x => sum += x) ;
 
         _winningRate = (int)(sum / _totalWins.Count * 10.0);
+    }
+
+    public void SaveWeights()
+    {
+        Functions.SaveNetwork(_bestWeights);
+    }
+
+    public void LoadWeights()
+    {
+        foreach (var battle in Battles)
+        {
+            battle.agent.PushWeights(Functions.LoadNetwork());
+        }
+
     }
 }

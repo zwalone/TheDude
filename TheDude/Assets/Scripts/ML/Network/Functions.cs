@@ -20,11 +20,11 @@ static class Functions
         return 1 / (1 + Math.Exp(-input));
     }
 
-    public static void SaveNetwork(List<double> network)
+    public static void SaveNetwork(List<double> weights)
     {
         List<string> dataToSave = new List<string>();
 
-        foreach (var item in network)
+        foreach (var item in weights)
         {
             dataToSave.Add(item.ToString());
         }
