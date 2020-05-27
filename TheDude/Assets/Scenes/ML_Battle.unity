@@ -1187,7 +1187,7 @@ MonoBehaviour:
   MutationRate: 0
   Crossover: 0
   LimitOfBatttleTurn: 100
-  FightsWithEachEnemy: 10
+  FightsWithEachEnemy: 50
   Battles: []
   ManagerView: {fileID: 1660914451}
   Factory: {fileID: 1753705366}

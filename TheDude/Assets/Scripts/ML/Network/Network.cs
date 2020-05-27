@@ -63,11 +63,12 @@ public class Network
                 foreach (Synapse synapse in neuron.Inputs)
                 {
                     //double r = rand.NextDouble();
-                    if (mutationRate > rand.NextDouble())
-                    {
-                        //Debug.Log("Mutajca!");
-                        synapse.Weight = rand.NextDouble();
-                    }
+                    //if (mutationRate > r)
+                    //{
+                    //    synapse.Weight = rand.NextDouble();
+                    //    //synapse.Weight += synapse.Weight * (double)UnityEngine.Random.Range(-0.05f, 0.05f);
+                    //}
+                    synapse.Weight += synapse.Weight * (double)UnityEngine.Random.Range(-0.05f, 0.05f);
                 }
             }
         }
