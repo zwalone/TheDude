@@ -10,6 +10,13 @@ public class SaveConfig : MonoBehaviour
 
     public Text crossoverText;
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
     public void SaveConfigToPref()
     {
         PlayerPrefs.SetString("mutationRate", mutationText.text);

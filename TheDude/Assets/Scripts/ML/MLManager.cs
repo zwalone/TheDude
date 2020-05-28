@@ -47,6 +47,10 @@ public class MLManager : MonoBehaviour
             Train();
             ChooseEnemy();
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     void ChooseEnemy()
@@ -143,12 +147,12 @@ public class MLManager : MonoBehaviour
         }
 
         if (_totalWins.Count == 10) _totalWins.RemoveAt(0);
-        _totalWins.Add(wins);
+        _totalWins.Add(wins/(NumOfBattles/10));
 
         double sum = 0;
         _totalWins.ForEach(x => sum += x) ;
 
-        _winningRate = (int)(sum / _totalWins.Count * 10.0);
+        _winningRate = (int)(sum / _totalWins.Count * 10);
     }
 
     public void SaveWeights()
